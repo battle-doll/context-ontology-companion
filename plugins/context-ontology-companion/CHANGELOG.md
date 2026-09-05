@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased — local development preview
+## Plugin 0.1.0-draft.1 — 2026-09-06 public preview
+
+- Published independent source and a complete skills-only GitHub marketplace package under Apache-2.0.
+- Passed all nine CI jobs: macOS, Windows, and Linux with Python 3.11, 3.12, and 3.13 ([run](https://github.com/battle-doll/context-ontology-companion/actions/runs/33975562432)).
+- Installed from the public GitHub marketplace on macOS Codex 0.153.3 and ran the installed CLI from outside the source checkout.
+- Added standalone deterministic plugin ZIP builds, Windows UTF-8 instructions, and five README languages.
+- Universal Directory status is tracked in [release-state.json](release-state.json). This remains a synthetic preview, with no production authentication or hosted MCP service.
+
+## Historical local snapshot — 2026-09-05
 
 - Prepared English, Korean, Japanese, Simplified Chinese, and Russian README and documentation entrypoints.
 - Added macOS, Windows, and Linux guidance for Python 3.11+; execution evidence remains separate from the supported-platform target.
@@ -12,7 +20,7 @@
 - Public source publication, hosted ChatGPT integration, marketplace installation, submission, review approval, and plugin-directory publication remain pending. The local Codex smoke test does not establish production real-data readiness.
 
 
-## 0.2.0-draft.1 — 2026-09-05
+## Design 0.2.0-draft.1 — 2026-09-05
 
 - 사용자 지정 이름 확정: `context-ontology-companion`, `ontology-companion-contracts`。
 - Contracts 독립 공개 플러그인의 목적을 구체화하고, 라이브러리 의존성과 플러그인 설치를 분리.

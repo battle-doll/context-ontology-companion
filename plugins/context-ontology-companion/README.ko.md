@@ -6,7 +6,7 @@
 
 사용자가 명시적으로 공유한 프로젝트의 결정·목표·제약을 출처와 변경 이력에 연결해 다음 작업에서 복구합니다. Context Ontology Companion은 독립 공개 플러그인으로 개발 중입니다.
 
-`demo`는 합성 예제·임시 저장소·모의 승인을 사용합니다. 별도의 로컬 프로토타입에는 영구 로컬 저장소, 인증된 루프백 사람 검토 화면, 수동 설정하는 stdio를 구현했습니다. 로컬 합성 시험을 통과했습니다. macOS의 Codex 0.153.3에서 시험 표시가 있는 샘플로 수동 설정한 로컬 stdio 기본 동작 시험도 통과했습니다. 호스팅된 ChatGPT 연동·플러그인 마켓플레이스 설치 및 Directory 게시·실제 사람 승인은 미검증입니다. 운영 목적의 실제 데이터 사용과 운영 인증은 아직 지원하지 않습니다.
+`demo`는 합성 예제·임시 저장소·모의 승인을 사용합니다. 별도의 로컬 프로토타입에는 영구 로컬 저장소, 인증된 루프백 사람 검토 화면, 수동 설정하는 stdio를 구현했습니다. 로컬 합성 시험을 통과했습니다. macOS의 Codex 0.153.3에서 시험 표시가 있는 샘플로 수동 설정한 로컬 stdio 기본 동작 시험도 통과했습니다. 공개 GitHub 마켓플레이스 설치와 설치된 실행 코드의 기본 동작 시험도 macOS에서 통과했습니다. 호스팅된 ChatGPT 연동과 실제 사람 승인은 미검증이며, universal Directory는 별도 절차로 아직 제출하지 않았습니다. 운영 목적의 실제 데이터 사용과 운영 인증은 아직 지원하지 않습니다.
 
 [로컬 런타임과 인증 검토 안내(영어)](docs/LOCAL_RUNTIME.md)
 
@@ -14,7 +14,7 @@
 
 ## 공개 프리뷰 설치
 
-저장소의 프리뷰가 공개되면 플러그인을 지원하는 Codex CLI에서 전체 패키지를 설치합니다.
+공개 프리뷰를 지금 설치할 수 있습니다. 플러그인을 지원하는 Codex CLI에서 전체 패키지를 설치합니다.
 
 ```sh
 codex plugin marketplace add battle-doll/context-ontology-companion
@@ -23,7 +23,7 @@ codex plugin add context-ontology-companion@context-ontology-preview
 
 새 Codex 작업에서 `$manage-approved-context`를 호출하고 설치된 패키지의 합성 데모를 실행해 달라고 요청합니다. 실행 코드·예제·포함된 계약이 필요하므로 `SKILL.md`만 복사하지 말고 전체 번들을 유지합니다. 영구 저장소와 사람 검토 설정은 이 데모와 별도입니다.
 
-[Windows 빠른 시작](docs/WINDOWS_QUICKSTART.md) · [현재 출시 상태](release-state.json). GitHub 마켓플레이스 설치와 universal Directory 게시는 별개입니다. 아래 시험 근거는 기록된 로컬 검증 시점의 결과이며, 이후 공개·OS 검증 상태는 출시 상태 파일에서 확인합니다.
+[Windows 빠른 시작](docs/WINDOWS_QUICKSTART.md) · [현재 출시 상태](release-state.json). GitHub 마켓플레이스 설치와 universal Directory 게시는 별개입니다. 아래 CI 근거는 링크한 완료 실행의 결과이며, 이후 공개·OS 검증 상태는 출시 상태 파일에서 확인합니다.
 
 ## 로컬 프리뷰 실행
 
@@ -40,14 +40,16 @@ python3 scripts/check.py
 
 ## 지원 OS와 검증 근거
 
-지원 대상 OS는 **macOS·Windows·Linux**입니다. 소스 이식성, 실제 OS 시험, 플러그인 호스트 동작은 별도 항목입니다. 이 초안은 세 OS의 시험 통과를 주장하지 않습니다.
+지원 대상 OS는 **macOS·Windows·Linux**입니다. 소스 이식성, 실제 OS 시험, 플러그인 호스트 동작은 별도 항목입니다. 아래 CI 실행에서 3 OS × 3 Python 조합 9개가 모두 통과했으며 호스트 설치는 별도로 검증합니다.
 
 | OS | 실행 근거 |
 | --- | --- |
-| macOS | 로컬 Python 3.12.14 합성 시험 통과 |
-| Windows | `not_run` — CI 구성 완료, 실행 대기 |
-| Linux | `not_run` — CI 구성 완료, 실행 대기 |
-| 플러그인 호스트 연동 | macOS Codex 0.153.3 수동 로컬 stdio 기본 동작 시험 통과; 호스팅 ChatGPT·마켓플레이스/Directory·실제 사람 승인 미검증 |
+| macOS | CI PASS — Python 3.11·3.12·3.13 (3/3) |
+| Windows | CI PASS — Python 3.11·3.12·3.13 (3/3); Windows Codex 호스트 설치 미시험 |
+| Linux | CI PASS — Python 3.11·3.12·3.13 (3/3); Linux Codex 호스트 설치 미시험 |
+| 플러그인 호스트 연동 | macOS Codex 0.153.3 로컬 stdio·공개 GitHub 마켓플레이스 설치 통과; Windows/Linux 호스트 설치·호스팅 ChatGPT·실제 사람 승인 미검증 |
+
+[CI 근거: 9개 작업 모두 통과](https://github.com/battle-doll/context-ontology-companion/actions/runs/33975562432).
 
 [macOS / Windows / Linux 안내](docs/ko/PLATFORMS.md)
 

@@ -56,8 +56,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "00ad2c058b758dafa00f7a76d19fa84eeb14a72b7a413221ee497883fd7f6409",
-      "bytes": 2589
+      "sha256": "28d37320ddda4b93bb232c80691526fb058830174562f838568e94dbcbfe63df",
+      "bytes": 3347
     },
     {
       "path": "CONTRIBUTING.md",
@@ -96,28 +96,28 @@
     },
     {
       "path": "README.ja.md",
-      "sha256": "db56713014e1fdc9a7285d9ff0cab292716575b4bf6539648e2ae4d1f3b3fb70",
-      "bytes": 5491
+      "sha256": "f765224b9e349d841e3b738301f6aee55f37c2808089a9faa9eaa5b7d6cc0cb4",
+      "bytes": 6041
     },
     {
       "path": "README.ko.md",
-      "sha256": "4d6f40c736ba04496dc53c4b5ec0f262ee5b5e8c34d7e66b37ae5a4e767a14cc",
-      "bytes": 4952
+      "sha256": "69f0a1b1c990dea9fe681656e28b3c5d44cc20880e73ab3f0f1095804c67da95",
+      "bytes": 5368
     },
     {
       "path": "README.md",
-      "sha256": "b819e51b7a880b978c39ba7f24a167ce562e10741a7bb10c725aec16cdfd02ed",
-      "bytes": 4542
+      "sha256": "cae62f8807e35645014dc0ea99263b449360cf34528de47f1aa0ae80038fa7d3",
+      "bytes": 4900
     },
     {
       "path": "README.ru.md",
-      "sha256": "56818b5cf06fed094a66efc7358bce224bc350c814126814267adff01eea4c9c",
-      "bytes": 7934
+      "sha256": "abd5104058cb36491a515462a576cf1918367b119c02ce707dc490b00417cf73",
+      "bytes": 8401
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "cbf7aa8dbd848bfdee210445ce48536d56daea74419048f9489305767991dcfe",
-      "bytes": 4177
+      "sha256": "8baf2b856a75e5b867ad3a0e6f7def7596c6915aa0227c43c86d8c7a87604ecc",
+      "bytes": 4618
     },
     {
       "path": "RISK_REGISTER.md",
@@ -126,8 +126,8 @@
     },
     {
       "path": "SECURITY.md",
-      "sha256": "645cbcbb08044a8c72a7abd91f5d7b3c12d678503bd866e4861588f08b6694ae",
-      "bytes": 2270
+      "sha256": "33d6458a636488a931a54228fa644468ba7c5d1ad59961e1d5fd71e681c5db69",
+      "bytes": 2125
     },
     {
       "path": "START_HERE.md",
@@ -356,8 +356,8 @@
     },
     {
       "path": "docs/RELEASE_POLICY.md",
-      "sha256": "99fe723b5cee91a9c5406bc4a6ebb062012ed5a51e08a8735850382537df157f",
-      "bytes": 2889
+      "sha256": "380138476695f9636f2fbae6f033a4411936ce2a90d79c23c9ca997be59640bb",
+      "bytes": 2935
     },
     {
       "path": "docs/VERSION_POLICY.md",
@@ -731,8 +731,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/CHANGELOG.md",
-      "sha256": "00ad2c058b758dafa00f7a76d19fa84eeb14a72b7a413221ee497883fd7f6409",
-      "bytes": 2589
+      "sha256": "28d37320ddda4b93bb232c80691526fb058830174562f838568e94dbcbfe63df",
+      "bytes": 3347
     },
     {
       "path": "plugins/context-ontology-companion/CONTRIBUTING.md",
@@ -771,28 +771,28 @@
     },
     {
       "path": "plugins/context-ontology-companion/README.ja.md",
-      "sha256": "db56713014e1fdc9a7285d9ff0cab292716575b4bf6539648e2ae4d1f3b3fb70",
-      "bytes": 5491
+      "sha256": "f765224b9e349d841e3b738301f6aee55f37c2808089a9faa9eaa5b7d6cc0cb4",
+      "bytes": 6041
     },
     {
       "path": "plugins/context-ontology-companion/README.ko.md",
-      "sha256": "4d6f40c736ba04496dc53c4b5ec0f262ee5b5e8c34d7e66b37ae5a4e767a14cc",
-      "bytes": 4952
+      "sha256": "69f0a1b1c990dea9fe681656e28b3c5d44cc20880e73ab3f0f1095804c67da95",
+      "bytes": 5368
     },
     {
       "path": "plugins/context-ontology-companion/README.md",
-      "sha256": "b819e51b7a880b978c39ba7f24a167ce562e10741a7bb10c725aec16cdfd02ed",
-      "bytes": 4542
+      "sha256": "cae62f8807e35645014dc0ea99263b449360cf34528de47f1aa0ae80038fa7d3",
+      "bytes": 4900
     },
     {
       "path": "plugins/context-ontology-companion/README.ru.md",
-      "sha256": "56818b5cf06fed094a66efc7358bce224bc350c814126814267adff01eea4c9c",
-      "bytes": 7934
+      "sha256": "abd5104058cb36491a515462a576cf1918367b119c02ce707dc490b00417cf73",
+      "bytes": 8401
     },
     {
       "path": "plugins/context-ontology-companion/README.zh-CN.md",
-      "sha256": "cbf7aa8dbd848bfdee210445ce48536d56daea74419048f9489305767991dcfe",
-      "bytes": 4177
+      "sha256": "8baf2b856a75e5b867ad3a0e6f7def7596c6915aa0227c43c86d8c7a87604ecc",
+      "bytes": 4618
     },
     {
       "path": "plugins/context-ontology-companion/RISK_REGISTER.md",
@@ -801,8 +801,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/SECURITY.md",
-      "sha256": "645cbcbb08044a8c72a7abd91f5d7b3c12d678503bd866e4861588f08b6694ae",
-      "bytes": 2270
+      "sha256": "33d6458a636488a931a54228fa644468ba7c5d1ad59961e1d5fd71e681c5db69",
+      "bytes": 2125
     },
     {
       "path": "plugins/context-ontology-companion/START_HERE.md",
@@ -1031,8 +1031,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/docs/RELEASE_POLICY.md",
-      "sha256": "99fe723b5cee91a9c5406bc4a6ebb062012ed5a51e08a8735850382537df157f",
-      "bytes": 2889
+      "sha256": "380138476695f9636f2fbae6f033a4411936ce2a90d79c23c9ca997be59640bb",
+      "bytes": 2935
     },
     {
       "path": "plugins/context-ontology-companion/docs/VERSION_POLICY.md",
@@ -1361,13 +1361,13 @@
     },
     {
       "path": "plugins/context-ontology-companion/plugin-bundle.json",
-      "sha256": "fb70aa9fc72c885f16faf1fee6eee5f3e06057568e5cdc8c91c722ed3209bd6c",
+      "sha256": "a129783f3886815afcc553eb0af435e81a6bc523c7f9af527b71abae096f1d86",
       "bytes": 25192
     },
     {
       "path": "plugins/context-ontology-companion/release-state.json",
-      "sha256": "6672a2520a41a63d7bf4149cfb33b077655ad95fac8663fe5f2272d531f1e3e4",
-      "bytes": 2402
+      "sha256": "93b8a93d5b01dc29ae92bef062b1bb7ea609bfc14552cdff66372c4cbcf8c177",
+      "bytes": 3705
     },
     {
       "path": "plugins/context-ontology-companion/requirements-dev.txt",
@@ -1526,8 +1526,8 @@
     },
     {
       "path": "release-state.json",
-      "sha256": "6672a2520a41a63d7bf4149cfb33b077655ad95fac8663fe5f2272d531f1e3e4",
-      "bytes": 2402
+      "sha256": "93b8a93d5b01dc29ae92bef062b1bb7ea609bfc14552cdff66372c4cbcf8c177",
+      "bytes": 3705
     },
     {
       "path": "requirements-dev.txt",

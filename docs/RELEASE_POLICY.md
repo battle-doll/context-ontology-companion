@@ -1,6 +1,6 @@
 # Release and rollback policy
 
-This is a local development draft. Prepared files do not mean that a public GitHub repository, plugin installation, host integration, submission, approval, or publication has been completed.
+This is a public development preview. Prepared files do not mean that a public GitHub repository, plugin installation, host integration, submission, approval, or publication has been completed.
 
 ## Evidence gates
 
@@ -15,7 +15,7 @@ Before claiming a release:
 5. Confirm copyright ownership, contribution rights, and adoption of the prepared Apache-2.0 license. Establish and verify private security reporting and real support routes.
 6. Review current host packaging and submission rules against the actual package. Obtain the appropriate owner authorization for public visibility, submission, legal attestations and publication.
 
-Keep each language's public claims aligned with the same evidence. The `LICENSE` file is prepared locally for Apache-2.0 adoption; owner rights and licensing confirmation remain a public-release prerequisite.
+Keep each language's public claims aligned with the same evidence. The public preview adopts Apache-2.0. Current evidence and Directory status are recorded in `release-state.json`; a GitHub release does not claim hosted service or real-data readiness.
 
 ## Release record
 

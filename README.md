@@ -6,7 +6,7 @@
 
 Recover the project decisions, goals, and constraints you deliberately share, with their sources and changes over time. Context Ontology Companion is being developed as an independent public plugin.
 
-The `demo` uses synthetic examples, temporary storage, and simulated approval. A separate local prototype now implements persistent local storage, authenticated loopback human review, and manually configured stdio. Local synthetic tests have passed. A manually configured local stdio smoke test passed on macOS with Codex 0.153.3 using labeled trial samples. Hosted ChatGPT integration, plugin marketplace installation/Directory publication, and actual human approval remain unverified. Production real-data use and production authentication remain unsupported.
+The `demo` uses synthetic examples, temporary storage, and simulated approval. A separate local prototype now implements persistent local storage, authenticated loopback human review, and manually configured stdio. Local synthetic tests have passed. A manually configured local stdio smoke test passed on macOS with Codex 0.153.3 using labeled trial samples. Installation from the public GitHub marketplace and the installed runtime smoke test also passed on macOS. Hosted ChatGPT integration and actual human approval remain unverified; the universal Directory submission is separate and has not been made. Production real-data use and production authentication remain unsupported.
 
 [Local runtime and authenticated review guide](docs/LOCAL_RUNTIME.md)
 
@@ -14,7 +14,7 @@ The local authenticated reviewer and manually configured stdio remain previews. 
 
 ## Install the public preview
 
-When the repository's preview is available, install its complete package with a Codex CLI that supports plugins:
+The public preview is available now. Install its complete package with a Codex CLI that supports plugins:
 
 ```sh
 codex plugin marketplace add battle-doll/context-ontology-companion
@@ -23,7 +23,7 @@ codex plugin add context-ontology-companion@context-ontology-preview
 
 Start a new Codex task and invoke `$manage-approved-context` to run the installed package's synthetic demo. Keep the complete bundle; copying only `SKILL.md` omits its runtime, examples, and vendored contracts. Persistent storage and its human review setup are separate from this demo.
 
-[Windows quickstart](docs/WINDOWS_QUICKSTART.md) · [Current release state](release-state.json). GitHub marketplace installation and universal Directory publication are separate statuses. The test evidence below describes the recorded local snapshot; consult the release state for subsequent publication and platform results.
+[Windows quickstart](docs/WINDOWS_QUICKSTART.md) · [Current release state](release-state.json). GitHub marketplace installation and universal Directory publication are separate statuses. The CI evidence below records the linked completed run. Consult the release state for subsequent publication and platform results.
 
 ## Try the local preview
 
@@ -40,14 +40,16 @@ These commands run local development code. They do not install a plugin or creat
 
 ## Platforms and evidence
 
-The supported-platform target is **macOS, Windows, and Linux**. Source portability, an executed OS test, and a working plugin host are separate claims. This draft does not claim all three operating systems have passed tests.
+The supported-platform target is **macOS, Windows, and Linux**. Source portability, an executed OS test, and a working plugin host are separate claims. The linked CI run passed all nine OS/Python combinations; host installation is tested separately.
 
 | OS | Execution evidence |
 | --- | --- |
-| macOS | Local Python 3.12.14 synthetic tests passed |
-| Windows | `not_run` — CI configured; execution pending |
-| Linux | `not_run` — CI configured; execution pending |
-| Plugin host integration | macOS Codex 0.153.3 manually configured local stdio smoke passed; hosted ChatGPT, marketplace/Directory, and actual human approval unverified |
+| macOS | CI PASS — Python 3.11, 3.12, 3.13 (3/3) |
+| Windows | CI PASS — Python 3.11, 3.12, 3.13 (3/3); Windows Codex host installation not tested |
+| Linux | CI PASS — Python 3.11, 3.12, 3.13 (3/3); Linux Codex host installation not tested |
+| Plugin host integration | macOS Codex 0.153.3 local stdio smoke and public GitHub marketplace installation passed; Windows/Linux host installation, hosted ChatGPT, and actual human approval unverified |
+
+[CI evidence: all 9 jobs passed](https://github.com/battle-doll/context-ontology-companion/actions/runs/33975562432).
 
 [macOS / Windows / Linux guide](docs/PLATFORMS.md)
 

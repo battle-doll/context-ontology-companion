@@ -10,7 +10,7 @@
     "tests-passed": true,
     "hosted-tested": false,
     "github-public-ready": true,
-    "github-published": false,
+    "github-published": true,
     "submission-ready": true,
     "submitted": false,
     "approved": false,
@@ -22,12 +22,17 @@
     "Linux"
   ],
   "os_execution": {
-    "macOS": "local Python 3.12.14 synthetic tests passed",
-    "Windows": "not_run",
-    "Linux": "not_run"
+    "macOS": "GitHub Actions CI passed on Python 3.11, 3.12 and 3.13",
+    "Windows": "GitHub Actions CI passed on Python 3.11, 3.12 and 3.13",
+    "Linux": "GitHub Actions CI passed on Python 3.11, 3.12 and 3.13"
   },
   "host_e2e": "not_run",
-  "external_actions": [],
+  "external_actions": [
+    "created public GitHub repository",
+    "pushed reviewed source to main",
+    "executed 3 OS x 3 Python CI",
+    "installed plugin from public GitHub marketplace on macOS"
+  ],
   "release_gate": "public skills-only preview authorized; stable contract, real-data authentication and hosted MCP remain outside this release",
   "license_prepared": "Apache-2.0",
   "contract_validation_scope": "draft only: actual Context export consumed by standalone Contracts; Code mapping is synthetic, full Code runtime consumer not verified",
@@ -36,7 +41,7 @@
     "P1a": "local_synthetic_consumer_passed",
     "P1b": "stable_version_not_released",
     "P2": "local_preview_only",
-    "P3": "skills_only_public_preview_prepared",
+    "P3": "public_skills_only_preview_ci_and_github_install_passed; directory_pending",
     "P4": "not_started_code_unchanged",
     "P5": "not_justified"
   },
@@ -47,7 +52,7 @@
     "connection": "manually configured project-local stdio",
     "scope": "10 tools discovered and invoked across Context and Contracts; no model turn",
     "human_approval": "simulated_not_human_evidence",
-    "packaged_plugin_installation": "not_run"
+    "packaged_plugin_installation": "separate macOS GitHub marketplace installation and installed CLI passed; no plugin model turn"
   },
   "host_e2e_scope": "hosted ChatGPT and packaged-plugin end-to-end; excludes local Codex MCP smoke",
   "submission_scope": "skills-only self-contained preview ZIP; no hosted MCP endpoint",
@@ -58,6 +63,27 @@
     "channel": "prerelease",
     "bundle_type": "skills-only",
     "directory_status": "not_submitted",
-    "status_snapshot": "before initial public source push; see repository main for current release-state.json"
+    "status_snapshot": "public source and CI verified; Directory submission not yet performed at bundle creation"
+  },
+  "ci": {
+    "url": "https://github.com/battle-doll/context-ontology-companion/actions/runs/33975562432",
+    "tested_commit": "488fd89f2ee5583a02046fcec4ef16e9fb0ff983",
+    "jobs_passed": 9,
+    "jobs_total": 9,
+    "scope": "source and synthetic CLI tests; Windows desktop-host and storage ACL not verified"
+  },
+  "marketplace_installation": {
+    "status": "passed",
+    "platform": "macOS",
+    "codex_version": "0.153.3",
+    "source": "public GitHub marketplace",
+    "skills_enabled": true,
+    "installed_bundle_cli": "passed from a working directory outside the repository",
+    "new_task_skill_invocation": "not_run"
+  },
+  "security_reporting": {
+    "url": "https://github.com/battle-doll/context-ontology-companion/security/advisories/new",
+    "private_vulnerability_reporting_enabled": true,
+    "verification": "GitHub API setting confirmed; no test report submitted"
   }
 }
