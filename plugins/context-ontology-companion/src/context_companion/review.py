@@ -19,6 +19,7 @@ import os
 from pathlib import Path
 import re
 import secrets
+import socket
 import stat
 import time
 from urllib.parse import parse_qs, urlsplit
@@ -28,6 +29,8 @@ from .store import ContextError, Principal, Store, canonical, text_field, valida
 PBKDF2_ITERATIONS = 600_000
 SESSION_SECONDS = 900
 MAX_BODY_BYTES = 16_384
+REJECT_DRAIN_BYTES = 65_536
+REJECT_DRAIN_SECONDS = 0.5
 MAX_SESSIONS = 64
 COOKIE = "context_review_session"
 CONFIG_NAME = "operator.json"
@@ -231,6 +234,32 @@ class ReviewHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.close_connection = True
         self.wfile.write(content)
+        if code >= 400:
+            self._finish_rejected_request()
+
+    def _finish_rejected_request(self):
+        # RFC 9112 section 9.6: full close with unread/in-flight request bytes
+        # can reset the connection and erase the response on the client. Send
+        # the rejection first, then half-close and discard only bounded bytes.
+        # This is transport cleanup, never parsing or accepting a larger body.
+        try:
+            self.wfile.flush()
+            self.connection.shutdown(socket.SHUT_WR)
+            deadline = time.monotonic() + REJECT_DRAIN_SECONDS
+            remaining = REJECT_DRAIN_BYTES
+            while remaining:
+                timeout = deadline - time.monotonic()
+                if timeout <= 0:
+                    break
+                self.connection.settimeout(timeout)
+                content = self.rfile.read1(min(4096, remaining))
+                if not content:
+                    break
+                remaining -= len(content)
+        except OSError:
+            # The response is already sent; a disconnected/stalled peer must
+            # not trigger request logging, another response or more processing.
+            pass
 
     def send_error(self, code, message=None, explain=None):
         # Do not echo request paths, input, or Python exceptions in error pages.

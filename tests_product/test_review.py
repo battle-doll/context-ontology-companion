@@ -1,18 +1,20 @@
 """Synthetic local HTTP integration. Not ChatGPT E2E or Windows ACL proof."""
 from html import unescape
-from http.client import HTTPConnection
+from http.client import HTTPConnection, HTTPResponse
 import json
 import os
 from pathlib import Path
 import re
+import socket
 import tempfile
 import threading
 import unittest
+from unittest import mock
 from urllib.parse import urlencode
 
 import sys
 sys.path[:0]=[str(Path(__file__).resolve().parents[1]/"src"),str(Path(__file__).resolve().parents[1]/"vendor")]
-from context_companion.review import COOKIE, CONFIG_NAME, DATABASE_NAME, MAX_BODY_BYTES, SOURCE_ROOT, init_local, load_local, make_server
+from context_companion.review import COOKIE, CONFIG_NAME, DATABASE_NAME, MAX_BODY_BYTES, REJECT_DRAIN_BYTES, REJECT_DRAIN_SECONDS, ReviewHandler, SOURCE_ROOT, init_local, load_local, make_server
 from context_companion.store import ContextError, Principal, Store
 
 PASSWORD = "synthetic-review-password-123"
@@ -219,6 +221,44 @@ class ReviewHTTPTests(unittest.TestCase):
         self.assertEqual(self.request("POST", "/login", raw="csrf=a&csrf=b")[0], 400)
         self.assertEqual(self.current()[0]["state"], "pending")
 
+    def test_oversize_headers_receive_413_before_delayed_body(self):
+        self.login()
+        body = b"x=" + b"a" * MAX_BODY_BYTES
+        headers = (f"POST /login HTTP/1.1\r\nHost: {self.server.expected_host}\r\n"
+                   f"Origin: {self.server.origin}\r\nCookie: {self.cookie}\r\n"
+                   f"Content-Type: application/x-www-form-urlencoded\r\nContent-Length: {len(body)}\r\n\r\n")
+        with socket.create_connection(self.server.server_address, timeout=2) as connection:
+            connection.sendall(headers.encode("ascii"))
+            response = HTTPResponse(connection)
+            response.begin()
+            self.assertEqual(response.status, 413)
+            self.assertEqual(response.getheader("Connection"), "close")
+            self.assertEqual(response.read(), b"INVALID_INPUT")
+            # Body bytes can already be in flight when a sender sees rejection.
+            # A half-close permits this bounded cleanup without a reset before
+            # the client can read its response. No application parsing follows.
+            connection.sendall(body[:4096])
+            connection.sendall(body[4096:])
+            connection.shutdown(socket.SHUT_WR)
+        self.assertEqual(self.request("GET", "/login")[0], 200)
+        self.assertEqual(self.current()[0]["state"], "pending")
+
+    def test_huge_declared_body_with_no_bytes_does_not_hold_server(self):
+        self.login()
+        headers = (f"POST /login HTTP/1.1\r\nHost: {self.server.expected_host}\r\n"
+                   f"Origin: {self.server.origin}\r\nCookie: {self.cookie}\r\n"
+                   "Content-Type: application/x-www-form-urlencoded\r\nContent-Length: 999999\r\n\r\n")
+        with socket.create_connection(self.server.server_address, timeout=2) as stalled:
+            stalled.sendall(headers.encode("ascii"))
+            response = HTTPResponse(stalled)
+            response.begin()
+            self.assertEqual(response.status, 413)
+            self.assertEqual(response.read(), b"INVALID_INPUT")
+            # Keep the sender open, without sending its claimed body. A fresh
+            # connection must be served after the fixed cleanup deadline.
+            self.assertEqual(self.request("GET", "/login")[0], 200)
+        self.assertEqual(self.current()[0]["state"], "pending")
+
     def test_rate_limits_and_loopback_bind(self):
         self.assertEqual(self.server.server_address[0], "127.0.0.1")
         self.server.request_times = [self.server.clock()] * 120
@@ -235,6 +275,26 @@ class ReviewHTTPTests(unittest.TestCase):
         self.assertNotIn(PASSWORD, json.dumps(config))
         self.assertNotEqual(config["password_hash"], PASSWORD)
         self.assertNotIn(PASSWORD, self.request("GET", "/login")[2])
+
+
+class RejectedConnectionBoundsTests(unittest.TestCase):
+    def test_cleanup_has_absolute_time_and_byte_limits_without_parsing(self):
+        handler = object.__new__(ReviewHandler)
+        handler.connection = mock.Mock()
+        handler.wfile = mock.Mock()
+        handler.rfile = mock.Mock()
+        handler.rfile.read1.side_effect = lambda count: b"x" * count
+        with mock.patch("context_companion.review.time.monotonic", return_value=1.0):
+            handler._finish_rejected_request()
+        self.assertEqual(sum(call.args[0] for call in handler.rfile.read1.call_args_list), REJECT_DRAIN_BYTES)
+        handler.connection.shutdown.assert_called_once_with(socket.SHUT_WR)
+        handler.rfile.read.assert_not_called()
+        handler.rfile.reset_mock()
+        handler.connection.reset_mock()
+        with mock.patch("context_companion.review.time.monotonic", side_effect=[1.0, 1.1, 1.0 + REJECT_DRAIN_SECONDS + 0.1]):
+            handler._finish_rejected_request()
+        self.assertEqual(handler.rfile.read1.call_count, 1)
+        self.assertLessEqual(handler.connection.settimeout.call_args.args[0], REJECT_DRAIN_SECONDS)
 
 
 class LocalStorageSetupTests(unittest.TestCase):

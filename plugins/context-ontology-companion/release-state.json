@@ -50,12 +50,12 @@
     "bundle_type": "independent apply/manage skills with local MCP, CLI and setup helper",
     "directory_status": "candidate not uploaded"
   },
-  "as_of_utc": "2026-09-05T19:24:42Z",
+  "as_of_utc": "2026-09-05T19:37:03Z",
   "snapshot_kind": "pre-publication candidate preparation snapshot",
-  "snapshot_scope": "Current-version local verification at packaging time. Subsequent GitHub CI, release and Directory states can advance without rewriting this bundled snapshot.",
+  "snapshot_scope": "Local verification snapshot after the portable rejected-request close correction. Corrected-revision platform CI and publication are separate; earlier results do not establish corrected Windows execution.",
   "local_checks": {
     "product_tests": {
-      "passed": 71,
+      "passed": 74,
       "scope": "synthetic isolated product tests including 11 apply-workflow cases and unchanged authenticated-review protections"
     },
     "design_package_tests": {
@@ -70,6 +70,11 @@
     "plugin_manifest_validation": "PASS",
     "skill_validation": "PASS: apply-context-ontology and manage-approved-context",
     "final_generated_bundle": "pending root packaging after source freeze",
-    "ci_configuration": "macOS/Windows/Linux x Python 3.11/3.12/3.13"
+    "ci_configuration": "macOS/Windows/Linux x Python 3.11/3.12/3.13",
+    "http_review_regression": {
+      "passed": 23,
+      "scope": "macOS Python 3.12.14; oversized, delayed and stalled rejected bodies; strict request acceptance bound preserved",
+      "corrected_windows_ci": "pending"
+    }
   }
 }

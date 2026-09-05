@@ -56,8 +56,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "e351eaea0804b9579980b2986f29debde503ed9597c467e689e8dbbe3da19d89",
-      "bytes": 5433
+      "sha256": "fb60f485808901033121689e2e60fa4fb08d7a67b7977e42b44aed5084327c0c",
+      "bytes": 5587
     },
     {
       "path": "CONTRIBUTING.md",
@@ -761,8 +761,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/CHANGELOG.md",
-      "sha256": "e351eaea0804b9579980b2986f29debde503ed9597c467e689e8dbbe3da19d89",
-      "bytes": 5433
+      "sha256": "fb60f485808901033121689e2e60fa4fb08d7a67b7977e42b44aed5084327c0c",
+      "bytes": 5587
     },
     {
       "path": "plugins/context-ontology-companion/CONTRIBUTING.md",
@@ -1421,13 +1421,13 @@
     },
     {
       "path": "plugins/context-ontology-companion/plugin-bundle.json",
-      "sha256": "3234ff68f473955b8e17ca165ac9244489c06cf8fbd8b12622dcdbda9012fb21",
+      "sha256": "8797a3e3c9a5ee20e8616b6d43e6c2a6b46f634ad77a25ec399f67dee950d18f",
       "bytes": 27621
     },
     {
       "path": "plugins/context-ontology-companion/release-state.json",
-      "sha256": "32612d51e1dd366760d6eea650b63daf94b7b41fc84eb13f523f620582934add",
-      "bytes": 3211
+      "sha256": "5d555ce329bd985b59c2c5a672694a3ab16bc951948193ce6f60faaf011e1c43",
+      "bytes": 3487
     },
     {
       "path": "plugins/context-ontology-companion/requirements-dev.txt",
@@ -1521,8 +1521,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/src/context_companion/review.py",
-      "sha256": "3faaf2c31873257eddba036f8bce21f22da54c3cc7f00c9bd00b012eca996101",
-      "bytes": 18358
+      "sha256": "bab2318323b33846453ce3ac157b5386c5d5655d1a100d920ce40c5a3b065c88",
+      "bytes": 19611
     },
     {
       "path": "plugins/context-ontology-companion/src/context_companion/store.py",
@@ -1576,8 +1576,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/tests_product/test_review.py",
-      "sha256": "4e1705266dddf3e73769ba521cc3281002773b2fe254f6dc6cdd02a8dfebdbdc",
-      "bytes": 14125
+      "sha256": "c9e30401015991015d7b14906184cb644d66edabb987666fa903b925453ff8e4",
+      "bytes": 17681
     },
     {
       "path": "plugins/context-ontology-companion/tests_product/test_setup_mcp.py",
@@ -1636,8 +1636,8 @@
     },
     {
       "path": "release-state.json",
-      "sha256": "32612d51e1dd366760d6eea650b63daf94b7b41fc84eb13f523f620582934add",
-      "bytes": 3211
+      "sha256": "5d555ce329bd985b59c2c5a672694a3ab16bc951948193ce6f60faaf011e1c43",
+      "bytes": 3487
     },
     {
       "path": "requirements-dev.txt",
@@ -1731,8 +1731,8 @@
     },
     {
       "path": "src/context_companion/review.py",
-      "sha256": "3faaf2c31873257eddba036f8bce21f22da54c3cc7f00c9bd00b012eca996101",
-      "bytes": 18358
+      "sha256": "bab2318323b33846453ce3ac157b5386c5d5655d1a100d920ce40c5a3b065c88",
+      "bytes": 19611
     },
     {
       "path": "src/context_companion/store.py",
@@ -1786,8 +1786,8 @@
     },
     {
       "path": "tests_product/test_review.py",
-      "sha256": "4e1705266dddf3e73769ba521cc3281002773b2fe254f6dc6cdd02a8dfebdbdc",
-      "bytes": 14125
+      "sha256": "c9e30401015991015d7b14906184cb644d66edabb987666fa903b925453ff8e4",
+      "bytes": 17681
     },
     {
       "path": "tests_product/test_setup_mcp.py",

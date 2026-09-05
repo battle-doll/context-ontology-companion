@@ -42,8 +42,8 @@
       "sha256": "a4d2309c9354886d9a14086395e6a05884a767d616ffbf11c8a34764d1a359ca"
     },
     "CHANGELOG.md": {
-      "bytes": 5433,
-      "sha256": "e351eaea0804b9579980b2986f29debde503ed9597c467e689e8dbbe3da19d89"
+      "bytes": 5587,
+      "sha256": "fb60f485808901033121689e2e60fa4fb08d7a67b7977e42b44aed5084327c0c"
     },
     "CONTRIBUTING.md": {
       "bytes": 1923,
@@ -570,8 +570,8 @@
       "sha256": "3e4e1288d3dff5821d392448b291eb10094bfeee8fb11f2e0de7b2c1c1a80ec3"
     },
     "release-state.json": {
-      "bytes": 3211,
-      "sha256": "32612d51e1dd366760d6eea650b63daf94b7b41fc84eb13f523f620582934add"
+      "bytes": 3487,
+      "sha256": "5d555ce329bd985b59c2c5a672694a3ab16bc951948193ce6f60faaf011e1c43"
     },
     "requirements-dev.txt": {
       "bytes": 229,
@@ -646,8 +646,8 @@
       "sha256": "859a60a762d1af5738fbdf34a8a890f8753aab73348fdbe7ba1b0a70a23d3af6"
     },
     "src/context_companion/review.py": {
-      "bytes": 18358,
-      "sha256": "3faaf2c31873257eddba036f8bce21f22da54c3cc7f00c9bd00b012eca996101"
+      "bytes": 19611,
+      "sha256": "bab2318323b33846453ce3ac157b5386c5d5655d1a100d920ce40c5a3b065c88"
     },
     "src/context_companion/store.py": {
       "bytes": 21433,
@@ -690,8 +690,8 @@
       "sha256": "0789cb4bb162e87d435b087875730dfcce1d4dcbccfd2f5a21069be878a1d759"
     },
     "tests_product/test_review.py": {
-      "bytes": 14125,
-      "sha256": "4e1705266dddf3e73769ba521cc3281002773b2fe254f6dc6cdd02a8dfebdbdc"
+      "bytes": 17681,
+      "sha256": "c9e30401015991015d7b14906184cb644d66edabb987666fa903b925453ff8e4"
     },
     "tests_product/test_setup_mcp.py": {
       "bytes": 8845,
