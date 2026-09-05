@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0-draft.1"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96,
+      "pattern": "^prj_[A-Za-z0-9_-]+$"
+    },
+    "action": {
+      "enum": [
+        "create",
+        "supersede",
+        "retract",
+        "erase"
+      ]
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^idem_[A-Za-z0-9_-]{8,}$"
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "Decision",
+            "Goal",
+            "Requirement",
+            "Constraint"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "subject": {
+          "$ref": "context-record.schema.json#/$defs/entity"
+        },
+        "predicate": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[a-z][a-z0-9_.-]*$"
+        },
+        "object": {
+          "$ref": "context-record.schema.json#/$defs/value"
+        },
+        "origin": {
+          "enum": [
+            "user_asserted",
+            "document_observed",
+            "model_inferred"
+          ]
+        },
+        "extraction_method": {
+          "enum": [
+            "direct_user_input",
+            "quoted_excerpt",
+            "rule_based",
+            "model_generated"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "$ref": "context-record.schema.json#/$defs/source"
+          }
+        },
+        "valid_from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "statement",
+        "subject",
+        "predicate",
+        "object",
+        "origin",
+        "extraction_method",
+        "sources",
+        "valid_from",
+        "valid_until"
+      ]
+    },
+    "target_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96,
+      "pattern": "^ctx_[A-Za-z0-9_-]+$"
+    },
+    "expected_revision": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "action",
+    "idempotency_key"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.invalid/context-companion/draft-0.1/context-change.schema.json",
+  "title": "ContextChange request draft; no client approval fields",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "const": "create"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "candidate"
+        ],
+        "properties": {
+          "target_id": false,
+          "expected_revision": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "const": "supersede"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "candidate",
+          "target_id",
+          "expected_revision"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "enum": [
+              "retract",
+              "erase"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "target_id",
+          "expected_revision"
+        ],
+        "properties": {
+          "candidate": false
+        }
+      }
+    }
+  ]
+}

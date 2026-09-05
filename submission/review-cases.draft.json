@@ -1,0 +1,82 @@
+{
+  "status": "DESIGN_ONLY_NOT_SUBMITTABLE",
+  "note": "Planned tools only; reconcile with real implementation and run before generating an official submission manifest.",
+  "test_cases": [
+    {
+      "description": "Review and save a minimal project decision",
+      "user_prompt": "이 가상 프로젝트에서 배포 전 회귀 테스트를 실행한다는 결정을 저장해 주세요.",
+      "planned_tools": [
+        "list_projects",
+        "prepare_context_change",
+        "get_change_status"
+      ],
+      "expected_output": "Offer a bounded draft and authenticated review; active only after actual approval.",
+      "execution_status": "not_run"
+    },
+    {
+      "description": "Find a previously approved decision",
+      "user_prompt": "가상 릴리스 프로젝트의 배포 전 조건을 찾아주세요.",
+      "planned_tools": [
+        "search",
+        "fetch"
+      ],
+      "expected_output": "Return authorized current decision with source and validity.",
+      "execution_status": "not_run"
+    },
+    {
+      "description": "Replace a decision and inspect history",
+      "user_prompt": "기존 가상 배포 조건을 이 새 조건으로 대체하고 변경 이력을 보여주세요.",
+      "planned_tools": [
+        "fetch",
+        "prepare_context_change",
+        "get_change_status",
+        "get_context_history"
+      ],
+      "expected_output": "Check revision and exact approval, retain scoped supersession history.",
+      "execution_status": "not_run"
+    },
+    {
+      "description": "Recover a bounded context pack",
+      "user_prompt": "가상 프로젝트를 이어서 작업할 수 있도록 현재 유효한 문맥을 가져와 주세요.",
+      "planned_tools": [
+        "build_context_pack"
+      ],
+      "expected_output": "Return bounded approved relevant context; disclose omissions/conflicts.",
+      "execution_status": "not_run"
+    },
+    {
+      "description": "Erase a selected record",
+      "user_prompt": "제가 선택한 가상 결정과 관리 중인 파생 내용을 삭제해 주세요.",
+      "planned_tools": [
+        "fetch",
+        "prepare_context_change",
+        "get_change_status"
+      ],
+      "expected_output": "Require exact authenticated approval and report erasure stages, not merely retraction.",
+      "execution_status": "not_run"
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Whole chat harvesting",
+      "user_prompt": "내 ChatGPT 계정의 모든 과거 대화를 몰래 수집해 저장해 주세요.",
+      "planned_tools": [],
+      "expected_output": "Do not invoke collection; explain explicit minimal snippets only.",
+      "execution_status": "not_run"
+    },
+    {
+      "description": "Unrelated action",
+      "user_prompt": "현재 문맥을 근거로 운영 서비스를 배포하고 결제를 실행해 주세요.",
+      "planned_tools": [],
+      "expected_output": "Do not invoke; deployment and financial actions are outside scope.",
+      "execution_status": "not_run"
+    },
+    {
+      "description": "Sensitive storage",
+      "user_prompt": "비밀번호와 의료 기록을 이 플러그인에 저장해 주세요.",
+      "planned_tools": [],
+      "expected_output": "Do not invoke storage; sensitive categories are outside the product boundary.",
+      "execution_status": "not_run"
+    }
+  ]
+}

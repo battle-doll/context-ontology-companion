@@ -1,0 +1,105 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "source_hashes_before": {
+    "context-ontology-companion/src/context_companion/store.py": "8710464749ebecfb57c3e0fd73c773b4612f2a1d59ce8d7f6096f68dfe0ce82e",
+    "context-ontology-companion/src/context_companion/tools.py": "38b57e49465b6d507ca3e8276bd9f944c6a9aa3eda1163cc7f2c641f4b10f4c6",
+    "context-ontology-companion/src/context_companion/mcp.py": "12a4a9525263f67f67be1e5c79aef1993b8389fda146ad420a26eff03c9bbdaa",
+    "ontology-companion-contracts/src/companion_contracts/validator.py": "f25ee2e9e4527210a07f931adde2cca04e1f23de8be17437565d41f93c9d2023",
+    "ontology-companion-contracts/src/companion_contracts/transport.py": "4838bdef0396383ee6470cf911052d75e2ca38d81318776152acc4d73d13668e"
+  },
+  "source_hashes_after": {
+    "context-ontology-companion/src/context_companion/store.py": "8710464749ebecfb57c3e0fd73c773b4612f2a1d59ce8d7f6096f68dfe0ce82e",
+    "context-ontology-companion/src/context_companion/tools.py": "38b57e49465b6d507ca3e8276bd9f944c6a9aa3eda1163cc7f2c641f4b10f4c6",
+    "context-ontology-companion/src/context_companion/mcp.py": "12a4a9525263f67f67be1e5c79aef1993b8389fda146ad420a26eff03c9bbdaa",
+    "ontology-companion-contracts/src/companion_contracts/validator.py": "f25ee2e9e4527210a07f931adde2cca04e1f23de8be17437565d41f93c9d2023",
+    "ontology-companion-contracts/src/companion_contracts/transport.py": "4838bdef0396383ee6470cf911052d75e2ca38d81318776152acc4d73d13668e"
+  },
+  "probes": [
+    {
+      "probe": "scope_and_authority_arguments",
+      "status": "pass",
+      "denials": 6,
+      "unauthorized_payloads": 0
+    },
+    {
+      "probe": "readonly_tools_with_expired_proposal",
+      "status": "pass",
+      "tools": [
+        "list_projects",
+        "search",
+        "fetch",
+        "get_context_history",
+        "build_context_pack",
+        "get_change_status",
+        "export_context"
+      ],
+      "database_hash_unchanged": true,
+      "database_changes_unchanged": true
+    },
+    {
+      "probe": "expiry_retention_observation",
+      "status": "limitation",
+      "read_status": "expired",
+      "stored_state": "pending",
+      "payload_retained_until_maintenance": true
+    },
+    {
+      "probe": "session_malformed_type_mutations",
+      "status": "pass",
+      "cases": 106,
+      "uncaught_exceptions": 0
+    },
+    {
+      "probe": "erase_related_proposals_history_export_restart",
+      "status": "pass",
+      "stale_related_approval_denied": true,
+      "deleted_record_returned": false,
+      "unrelated_proposals_cascade_deleted": false
+    },
+    {
+      "probe": "pack_one_effective_time_regression",
+      "status": "pass",
+      "clock_reads": 1,
+      "future_record_included": false
+    },
+    {
+      "probe": "scope_contract_regression",
+      "status": "pass",
+      "space_scope_rejected": true,
+      "controlled_error": "INVALID_PROJECT_ID"
+    },
+    {
+      "probe": "concurrent_pack_snapshot",
+      "status": "pass",
+      "pack_has_precommit_snapshot": true,
+      "next_search_observes_commit": true
+    },
+    {
+      "probe": "export_evidence-count_regression",
+      "status": "pass",
+      "records": 126,
+      "controlled_error": "EXPORT_CONTRACT_LIMIT_OR_MISMATCH"
+    },
+    {
+      "probe": "export_byte-size_regression",
+      "status": "pass",
+      "records": 130,
+      "controlled_error": "EXPORT_CONTRACT_LIMIT_OR_MISMATCH"
+    },
+    {
+      "probe": "contracts_json_value_mutations",
+      "status": "pass",
+      "cases": 600,
+      "invalid_or_unsupported": 593,
+      "uncaught_exceptions": 0
+    },
+    {
+      "probe": "context_transport_parser_limits",
+      "status": "pass",
+      "cases": 5,
+      "admitted": []
+    }
+  ],
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "review_adapter_source_only_sha256": "3faaf2c31873257eddba036f8bce21f22da54c3cc7f00c9bd00b012eca996101"
+}

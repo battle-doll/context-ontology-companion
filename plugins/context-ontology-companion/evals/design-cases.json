@@ -1,0 +1,265 @@
+{
+  "status": "SPECIFICATION_ONLY_NOT_EXECUTED",
+  "version": "0.1.0-draft.1",
+  "cases": [
+    {
+      "id": "CONTRACT-01",
+      "requirement": "FR-03",
+      "scenario": "Record source missing",
+      "expected": "Reject a record with no evidence source.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CONTRACT-02",
+      "requirement": "FR-02",
+      "scenario": "Client supplied approved=true",
+      "expected": "Reject authorization/approval fields in candidate input.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CONTRACT-03",
+      "requirement": "FR-02",
+      "scenario": "Raw chat field",
+      "expected": "Reject whole-chat/broad-context fields.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "TEMPORAL-01",
+      "requirement": "FR-04",
+      "scenario": "Future validity",
+      "expected": "Do not include a future decision in current context.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "TEMPORAL-02",
+      "requirement": "FR-04",
+      "scenario": "Expired validity",
+      "expected": "Exclude expired records at the boundary [from, until).",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "TEMPORAL-03",
+      "requirement": "FR-04",
+      "scenario": "Invalid interval",
+      "expected": "Reject until <= from.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "ORIGIN-01",
+      "requirement": "FR-03",
+      "scenario": "Approved model inference",
+      "expected": "Retain model_inferred after user approval.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "ORIGIN-02",
+      "requirement": "FR-03",
+      "scenario": "Unavailable source",
+      "expected": "Return source unavailable, never fabricate verification.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CONSISTENCY-01",
+      "requirement": "FR-05",
+      "scenario": "Concurrent supersession",
+      "expected": "One expected revision wins; other returns conflict.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CONSISTENCY-02",
+      "requirement": "NFR-02",
+      "scenario": "Same idempotency key and payload",
+      "expected": "Return same proposal/result without duplication.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CONSISTENCY-03",
+      "requirement": "NFR-02",
+      "scenario": "Same key different payload",
+      "expected": "Return idempotency conflict.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "CONSISTENCY-04",
+      "requirement": "FR-05",
+      "scenario": "Supersession cycle",
+      "expected": "Reject self-reference or cycle.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-01",
+      "requirement": "NFR-01",
+      "scenario": "Cross-account record ID",
+      "expected": "No record content or existence information leaks.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-02",
+      "requirement": "NFR-01",
+      "scenario": "Cross-project graph expansion",
+      "expected": "Filter nodes, edges, evidence and pagination scope.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-03",
+      "requirement": "FR-02",
+      "scenario": "Forged approval",
+      "expected": "No apply without authenticated transaction-bound approval.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-04",
+      "requirement": "NFR-01",
+      "scenario": "Stored prompt injection",
+      "expected": "Treat payload as data; do not execute commands.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-05",
+      "requirement": "FR-02",
+      "scenario": "Expired or modified proposal",
+      "expected": "Reject stale approval and changed digest/revision.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-06",
+      "requirement": "NFR-01",
+      "scenario": "Arbitrary source URL",
+      "expected": "Do not fetch arbitrary external/internal URL.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-07",
+      "requirement": "NFR-07",
+      "scenario": "HTML injection in excerpt",
+      "expected": "Escape output and enforce restrictive CSP.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "SECURITY-08",
+      "requirement": "NFR-06",
+      "scenario": "Error with sensitive input",
+      "expected": "No sensitive echo in response or logs.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "DELETE-01",
+      "requirement": "FR-10",
+      "scenario": "Delete while cache/index holds content",
+      "expected": "Authoritative filter blocks immediately; derived copies removed.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "DELETE-02",
+      "requirement": "FR-10",
+      "scenario": "Restore an old backup",
+      "expected": "Replay deletion state before serving restored data.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "DELETE-03",
+      "requirement": "FR-10",
+      "scenario": "Forget vs retract",
+      "expected": "A forget request must not be satisfied only with inactive status.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "DELETE-04",
+      "requirement": "FR-10",
+      "scenario": "User export beyond control",
+      "expected": "Disclose limits; do not claim external copies reclaimed.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "RETRIEVAL-01",
+      "requirement": "FR-07",
+      "scenario": "Korean paraphrase",
+      "expected": "Evaluate relevant project and source retrieval on held-out corpus.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "RETRIEVAL-02",
+      "requirement": "FR-06",
+      "scenario": "Two scoped policies",
+      "expected": "Do not automatically overwrite different environments.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "RETRIEVAL-03",
+      "requirement": "FR-08",
+      "scenario": "Pack size exceeded",
+      "expected": "Respect hard character/item budget and show omissions.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "EXPORT-01",
+      "requirement": "FR-11",
+      "scenario": "Paged explicit export",
+      "expected": "Scope and cursor preserve authorization; erased content excluded.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "RELIABILITY-01",
+      "requirement": "NFR-08",
+      "scenario": "Unbounded graph request",
+      "expected": "Enforce graph/time/rate budgets.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "COMPAT-01",
+      "requirement": "NFR-04",
+      "scenario": "Code bridge privacy regression",
+      "expected": "No source/body/absolute-path automatic egress; code baseline unchanged.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "RELEASE-01",
+      "requirement": "NFR-05",
+      "scenario": "Submission metadata mismatch",
+      "expected": "Block release until hints/schema match actual implementation.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "HOST-01",
+      "requirement": "FR-13",
+      "scenario": "OAuth and new session",
+      "expected": "Authenticate intended account and recover approved project context.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "INDEPENDENCE-01",
+      "requirement": "FR-12",
+      "scenario": "Code plugin absent",
+      "expected": "Context workflow remains functional without Code plugin.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "PROJECT-01",
+      "requirement": "FR-01",
+      "scenario": "Project ownership",
+      "expected": "Only authorized private projects can be selected.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "HISTORY-01",
+      "requirement": "FR-09",
+      "scenario": "History without erased text",
+      "expected": "Show metadata history without reconstructing erased payload.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "BRIDGE-01",
+      "requirement": "FR-14",
+      "scenario": "Explicit code evidence",
+      "expected": "Link only approved immutable code artifact references.",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "QUALITY-01",
+      "requirement": "NFR-03",
+      "scenario": "Fabricated evidence reference",
+      "expected": "Reject unresolvable evidence and label uncertainty.",
+      "execution_status": "not_run"
+    }
+  ]
+}

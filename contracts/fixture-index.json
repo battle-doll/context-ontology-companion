@@ -1,0 +1,45 @@
+{
+  "note": "All fixtures are synthetic. Schema validity is not server authorization or runtime correctness.",
+  "cases": [
+    {
+      "file": "examples/context_record.user_reviewed.json",
+      "schema": "draft-0.1/context-record.schema.json",
+      "expected_valid": true
+    },
+    {
+      "file": "examples/context_record.inferred.json",
+      "schema": "draft-0.1/context-record.schema.json",
+      "expected_valid": true
+    },
+    {
+      "file": "examples/context_change.create.json",
+      "schema": "draft-0.1/context-change.schema.json",
+      "expected_valid": true
+    },
+    {
+      "file": "examples/knowledge_envelope.json",
+      "schema": "draft-0.1/knowledge-envelope.schema.json",
+      "expected_valid": true
+    },
+    {
+      "file": "fixtures/invalid_client_approval.json",
+      "schema": "draft-0.1/context-change.schema.json",
+      "expected_valid": false
+    },
+    {
+      "file": "fixtures/invalid_active_pending.json",
+      "schema": "draft-0.1/context-record.schema.json",
+      "expected_valid": false
+    },
+    {
+      "file": "fixtures/invalid_raw_chat_field.json",
+      "schema": "draft-0.1/context-change.schema.json",
+      "expected_valid": false
+    },
+    {
+      "file": "fixtures/invalid_missing_source.json",
+      "schema": "draft-0.1/context-record.schema.json",
+      "expected_valid": false
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "context-ontology-companion",
+  "version": "0.1.0-draft.1",
+  "description": "Try an offline project-context demo and guide explicitly selected context workflows.",
+  "author": {
+    "name": "battle-doll",
+    "url": "https://github.com/battle-doll"
+  },
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Context Ontology Companion",
+    "shortDescription": "Approved project context",
+    "longDescription": "Preview for project decisions, requirements and constraints with provenance. Includes a temporary synthetic demo requiring Python 3.11+. Persistent context needs separate local MCP and human review setup; production real-data use is unsupported.",
+    "developerName": "battle-doll",
+    "category": "Productivity",
+    "defaultPrompt": [
+      "Run the bundled synthetic project-context demo.",
+      "Explain how explicit context review works before setup."
+    ],
+    "capabilities": [
+      "Local Python 3.11+ workflow",
+      "Offline synthetic preview"
+    ],
+    "websiteURL": "https://github.com/battle-doll/context-ontology-companion",
+    "privacyPolicyURL": "https://github.com/battle-doll/context-ontology-companion/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/battle-doll/context-ontology-companion/blob/main/TERMS.md",
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/logo.svg",
+    "logo": "./assets/logo.svg"
+  },
+  "homepage": "https://github.com/battle-doll/context-ontology-companion#readme",
+  "repository": "https://github.com/battle-doll/context-ontology-companion",
+  "keywords": [
+    "codex-plugin",
+    "ontology",
+    "offline",
+    "provenance",
+    "preview"
+  ]
+}

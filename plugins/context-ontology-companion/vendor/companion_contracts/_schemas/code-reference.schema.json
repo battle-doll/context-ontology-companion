@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ontology-companion-contracts:0.1.0-draft.1:code-reference",
+  "type": "object",
+  "properties": {
+    "repository": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^(?:[^\\s\\x00-\\x1f\\x7f]+)$(?![\\s\\S])"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^(?:(?:[0-9a-f]{40}|[0-9a-f]{64}))$(?![\\s\\S])"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^(?:[^\\s\\x00-\\x1f\\x7f]+)$(?![\\s\\S])"
+    },
+    "co_namespace": {
+      "type": "string",
+      "const": "https://battle-doll.github.io/code-ontology-explorer/schema#"
+    },
+    "symbols": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512,
+            "pattern": "^(?:[^\\s\\x00-\\x1f\\x7f]+)$(?![\\s\\S])"
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "qualified_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "source_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "start_line": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000000
+          },
+          "end_line": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000000
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^(?:[^\\s\\x00-\\x1f\\x7f]+)$(?![\\s\\S])"
+            },
+            "minItems": 1,
+            "maxItems": 1000,
+            "uniqueItems": true
+          },
+          "runtime_status": {
+            "type": "string",
+            "const": "runtime_unknown"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "qualified_name",
+          "source_path",
+          "start_line",
+          "end_line",
+          "evidence_refs",
+          "runtime_status"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^(?:[^\\s\\x00-\\x1f\\x7f]+)$(?![\\s\\S])"
+            },
+            "minItems": 1,
+            "maxItems": 1000,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "source",
+          "target",
+          "type",
+          "evidence_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    }
+  },
+  "required": [
+    "repository",
+    "revision",
+    "snapshot_id",
+    "co_namespace",
+    "symbols",
+    "relations"
+  ],
+  "additionalProperties": false
+}

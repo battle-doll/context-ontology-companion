@@ -1,0 +1,119 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "const": "0.1.0-draft.1"
+    },
+    "export_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96,
+      "pattern": "^exp_[A-Za-z0-9_-]+$"
+    },
+    "exported_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96,
+      "pattern": "^prj_[A-Za-z0-9_-]+$"
+    },
+    "records": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "$ref": "context-record.schema.json"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "from_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 96,
+            "pattern": "^ctx_[A-Za-z0-9_-]+$"
+          },
+          "to_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 96,
+            "pattern": "^ctx_[A-Za-z0-9_-]+$"
+          },
+          "type": {
+            "enum": [
+              "relates_to",
+              "supports",
+              "contradicts",
+              "supersedes",
+              "depends_on"
+            ]
+          },
+          "evidence_source_ids": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^src_[A-Za-z0-9_-]+$"
+            }
+          },
+          "origin": {
+            "enum": [
+              "user_asserted",
+              "document_observed",
+              "model_inferred"
+            ]
+          }
+        },
+        "required": [
+          "from_id",
+          "to_id",
+          "type",
+          "evidence_source_ids",
+          "origin"
+        ]
+      }
+    },
+    "next_cursor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 2048
+    },
+    "redaction_notes": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    }
+  },
+  "required": [
+    "format_version",
+    "export_id",
+    "exported_at",
+    "project_id",
+    "records",
+    "relations",
+    "next_cursor",
+    "redaction_notes"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.invalid/context-companion/draft-0.1/knowledge-envelope.schema.json",
+  "title": "Portable context envelope draft",
+  "description": "Explicit export only. IDs remain project-scoped; this is not an access grant."
+}

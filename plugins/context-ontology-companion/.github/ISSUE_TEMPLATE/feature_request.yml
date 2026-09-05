@@ -1,0 +1,23 @@
+name: Feature request
+description: Explain a focused user need and an observable outcome.
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: User problem
+      description: Use a synthetic example; do not include private conversations or source.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected observable result
+      description: Include the affected product, OS, host, and current limitation.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Data and permission impact
+      description: Describe any proposed storage, upload, authority, compatibility, or migration change.

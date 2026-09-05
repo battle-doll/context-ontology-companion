@@ -1,0 +1,45 @@
+test_invalid_project_has_no_filesystem_side_effect (test_review.LocalStorageSetupTests.test_invalid_project_has_no_filesystem_side_effect) ... ok
+test_no_overwrite_and_trusted_principal_configuration (test_review.LocalStorageSetupTests.test_no_overwrite_and_trusted_principal_configuration) ... ok
+test_posix_private_modes_and_insecure_config_fail_closed (test_review.LocalStorageSetupTests.test_posix_private_modes_and_insecure_config_fail_closed) ... ok
+test_repository_relative_and_parent_traversal_paths_rejected (test_review.LocalStorageSetupTests.test_repository_relative_and_parent_traversal_paths_rejected) ... ok
+test_symlink_component_rejected (test_review.LocalStorageSetupTests.test_symlink_component_rejected) ... ok
+test_actual_http_login_review_approve_and_new_connection_recovery (test_review.ReviewHTTPTests.test_actual_http_login_review_approve_and_new_connection_recovery) ... ok
+test_bounded_body_and_duplicate_form_fields (test_review.ReviewHTTPTests.test_bounded_body_and_duplicate_form_fields) ... ok
+test_configuration_stores_only_salted_hash_and_no_password_response (test_review.ReviewHTTPTests.test_configuration_stores_only_salted_hash_and_no_password_response) ... ok
+test_erase_review_displays_exact_target_before_applying (test_review.ReviewHTTPTests.test_erase_review_displays_exact_target_before_applying) ... ok
+test_expired_session_denied (test_review.ReviewHTTPTests.test_expired_session_denied) ... ok
+test_incorrect_password_and_login_csrf_rejected (test_review.ReviewHTTPTests.test_incorrect_password_and_login_csrf_rejected) ... ok
+test_login_rate_limit (test_review.ReviewHTTPTests.test_login_rate_limit) ... ok
+test_malformed_url_and_cookie_return_bounded_errors (test_review.ReviewHTTPTests.test_malformed_url_and_cookie_return_bounded_errors) ... ok
+test_missing_or_wrong_csrf_does_not_mutate (test_review.ReviewHTTPTests.test_missing_or_wrong_csrf_does_not_mutate) ... ok
+test_nonce_digest_tampering_and_extra_authority_fields_rejected (test_review.ReviewHTTPTests.test_nonce_digest_tampering_and_extra_authority_fields_rejected) ... ok
+test_rate_limits_and_loopback_bind (test_review.ReviewHTTPTests.test_rate_limits_and_loopback_bind) ... ok
+test_replay_and_get_apply_are_not_mutations (test_review.ReviewHTTPTests.test_replay_and_get_apply_are_not_mutations) ... ok
+test_unauthenticated_review_and_approval_do_not_mutate (test_review.ReviewHTTPTests.test_unauthenticated_review_and_approval_do_not_mutate) ... ok
+test_wrong_host_and_origin_rejected (test_review.ReviewHTTPTests.test_wrong_host_and_origin_rejected) ... ok
+test_wrong_principal_cannot_review_or_approve (test_review.ReviewHTTPTests.test_wrong_principal_cannot_review_or_approve) ... ok
+test_concurrent_apply_exactly_one_commits (test_store.StoreTests.test_concurrent_apply_exactly_one_commits) ... ok
+test_constraint_conflict_and_unicode_budget_atomic (test_store.StoreTests.test_constraint_conflict_and_unicode_budget_atomic) ... ok
+test_digest_nonce_expiry_and_replay (test_store.StoreTests.test_digest_nonce_expiry_and_replay) ... ok
+test_draft_not_retrieved_and_no_approval_tool (test_store.StoreTests.test_draft_not_retrieved_and_no_approval_tool) ... ok
+test_erasure_scrubs_history_pending_and_restart (test_store.StoreTests.test_erasure_scrubs_history_pending_and_restart) ... ok
+test_export_aggregate_limit_fails_without_partial_artifact (test_store.StoreTests.test_export_aggregate_limit_fails_without_partial_artifact) ... ok
+test_export_consumed_by_standalone_contract_validator (test_store.StoreTests.test_export_consumed_by_standalone_contract_validator) ... ok
+test_idempotency_conflict_and_no_duplicate (test_store.StoreTests.test_idempotency_conflict_and_no_duplicate) ... ok
+test_readonly_tools_leave_database_identical (test_store.StoreTests.test_readonly_tools_leave_database_identical) ... ok
+test_recover_in_new_process_with_provenance (test_store.StoreTests.test_recover_in_new_process_with_provenance) ... ok
+test_rpc_lifecycle_and_tool_errors (test_store.StoreTests.test_rpc_lifecycle_and_tool_errors) ... ok
+test_scope_and_principal_isolation_all_reads (test_store.StoreTests.test_scope_and_principal_isolation_all_reads) ... ok
+test_scope_contract_and_single_time_snapshot (test_store.StoreTests.test_scope_contract_and_single_time_snapshot) ... ok
+test_sensitive_input_and_schema_rejected_without_echo (test_store.StoreTests.test_sensitive_input_and_schema_rejected_without_echo) ... ok
+test_stale_revision_rolls_back (test_store.StoreTests.test_stale_revision_rolls_back) ... ok
+test_valid_time_and_inference_not_promoted (test_store.StoreTests.test_valid_time_and_inference_not_promoted) ... ok
+test_nested_output_schema_rejects_missing_provenance (test_transport.TransportTests.test_nested_output_schema_rejects_missing_provenance) ... ok
+test_subprocess_stdio_rejects_hostile_input_and_recovers (test_transport.TransportTests.test_subprocess_stdio_rejects_hostile_input_and_recovers) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 2.404s
+
+OK
+
+{"status": "PASS", "scope": "LOCAL_PRODUCT_SYNTHETIC", "vendor_digest": "PASS", "host_e2e": "not_run"}

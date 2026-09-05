@@ -1,0 +1,17 @@
+{
+  "contract_version": "0.1.0-draft.1",
+  "source": "sibling local ontology-companion-contracts/src/companion_contracts, unpublished",
+  "intended_repository": "battle-doll/ontology-companion-contracts",
+  "upstream_commit": null,
+  "license": "Apache-2.0",
+  "copied_license": "CONTRACTS_LICENSE",
+  "files": {
+    "companion_contracts/validator.py": "f25ee2e9e4527210a07f931adde2cca04e1f23de8be17437565d41f93c9d2023",
+    "companion_contracts/transport.py": "4838bdef0396383ee6470cf911052d75e2ca38d81318776152acc4d73d13668e",
+    "companion_contracts/__init__.py": "561803e95818889872527e93bfe049cde51a1755fbd3fff594cde0395b3bd9ec",
+    "companion_contracts/_schemas/envelope.schema.json": "48ed69465199b76c118d3f79ae4b9611d0f2a82588ecba706ff961cd874069f6",
+    "companion_contracts/_schemas/context-decision.schema.json": "eefb43dda5619afbd89fc2c46536273350b7aa9d6963df04e381faf783161c74",
+    "companion_contracts/_schemas/code-reference.schema.json": "965ee8fbdf9a0f4a6e0ea769a78850810c08acf1a016638f246ebfea051c6900"
+  },
+  "license_sha256": "9c03be8c98ba0ce627905e4b27f379c5900e7afd6b5609213b851523501b3f9d"
+}

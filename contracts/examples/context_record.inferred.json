@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0-draft.1",
+  "id": "ctx_demo_candidate",
+  "revision": 1,
+  "project_id": "prj_demo_release",
+  "kind": "Decision",
+  "statement": "가상 프로젝트에서 배포 전 점검을 중요하게 생각할 가능성이 있다.",
+  "subject": {
+    "id": "ent_demo_release",
+    "label": "가상 릴리스 절차"
+  },
+  "predicate": "requires",
+  "object": {
+    "type": "literal",
+    "value": "배포 전 회귀 테스트"
+  },
+  "origin": "model_inferred",
+  "extraction_method": "model_generated",
+  "verification": "unverified",
+  "review": {
+    "status": "pending",
+    "approved_at": null,
+    "approval_method": "none"
+  },
+  "sources": [
+    {
+      "source_id": "src_demo_model_001",
+      "kind": "model_suggestion",
+      "availability": "available",
+      "excerpt": "가상 모델의 미검증 제안입니다."
+    }
+  ],
+  "valid_from": "2026-08-29T11:00:00Z",
+  "valid_until": null,
+  "recorded_at": "2026-08-29T11:00:00Z",
+  "status": "proposed",
+  "supersedes": []
+}

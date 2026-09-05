@@ -1,0 +1,198 @@
+{
+  "status": "PLANNED_NOT_EXECUTED",
+  "scope": "V2_PRODUCT_ACCEPTANCE_NOT_REFERENCE_UNIT_TESTS",
+  "cases": [
+    {
+      "id": "V2-E01",
+      "requirement": "FR-15",
+      "name": "contracts_independent",
+      "scenario": "Contracts alone validates a supported artifact",
+      "expected": "Contracts plugin only; supported synthetic artifact; bounded per-layer result, no dependency on Code/Context installation",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E02",
+      "requirement": "FR-15",
+      "name": "consumers_independent",
+      "scenario": "Code/Context work without Contracts plugin installation",
+      "expected": "Use pinned artifacts; absent plugin does not break consumer functionality",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E03",
+      "requirement": "FR-15",
+      "name": "no_authority_inheritance",
+      "scenario": "Installed Contracts cannot grant access to another project",
+      "expected": "Deny out-of-scope data access; no permission inheritance",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E04",
+      "requirement": "FR-15",
+      "name": "unsupported_executor",
+      "scenario": "Host cannot execute validator",
+      "expected": "Report capability limitation, never deterministic PASS",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E05",
+      "requirement": "FR-16",
+      "name": "code_profile",
+      "scenario": "Legacy code fixture with runtime_unknown",
+      "expected": "Preserve code IDs and runtime uncertainty; no mandatory ContextRecord fields",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E06",
+      "requirement": "FR-16",
+      "name": "context_profile",
+      "scenario": "Approved project decision fixture",
+      "expected": "Preserve origin/review/evidence axes, do not map approval to truth",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E07",
+      "requirement": "FR-16",
+      "name": "unknown_profile",
+      "scenario": "Artifact declares a profile not in registry",
+      "expected": "Return unsupported, no guessed conversion",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E08",
+      "requirement": "FR-16",
+      "name": "migration_loss",
+      "scenario": "Target cannot represent a source relation",
+      "expected": "Declare loss and require separate decision; input unchanged",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E09",
+      "requirement": "FR-17",
+      "name": "required_overflow",
+      "scenario": "Budget cannot hold all required constraints",
+      "expected": "Explicit insufficient budget; do not return successful partial essentials",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E10",
+      "requirement": "FR-17",
+      "name": "atomic_conflict",
+      "scenario": "Only one side of a conflict fits",
+      "expected": "Do not emit one side as a complete decision",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E11",
+      "requirement": "FR-17",
+      "name": "evidence_budget",
+      "scenario": "Claim fits but evidence does not",
+      "expected": "Keep whole group or omit/fail; never strip source",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E12",
+      "requirement": "FR-17",
+      "name": "korean_budget",
+      "scenario": "Korean text with UTF-8 byte bound",
+      "expected": "Use declared measured unit; no fabricated token conversion",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E13",
+      "requirement": "FR-17",
+      "name": "authoritative_constraints",
+      "scenario": "Important constraint absent from similarity Top-K",
+      "expected": "Find via applicable-constraint lookup or report coverage gap",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E14",
+      "requirement": "FR-17",
+      "name": "revoked_cached_pack",
+      "scenario": "Access revoked after prior pack was cached",
+      "expected": "Current authorization prevents cached disclosure",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E15",
+      "requirement": "FR-18",
+      "name": "known_at_unsupported",
+      "scenario": "Client requests historical known_at before feature exists",
+      "expected": "Explicit unsupported; never silently return current state",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E16",
+      "requirement": "FR-18",
+      "name": "historical_validity",
+      "scenario": "Now-superseded decision was valid at requested time",
+      "expected": "Use declared temporal semantics, not current status alone",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E17",
+      "requirement": "FR-18",
+      "name": "erased_history",
+      "scenario": "Historical query references erased payload",
+      "expected": "No payload resurrection in history, caches or restored index",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E18",
+      "requirement": "FR-18",
+      "name": "scope_time",
+      "scenario": "Same topic in different environments/time scopes",
+      "expected": "Do not supersede unrelated records",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E19",
+      "requirement": "FR-19",
+      "name": "controlled_baseline",
+      "scenario": "Compare approved JSON+search and graph on same task",
+      "expected": "Same evidence revisions/permissions/budget; report task outcome",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E20",
+      "requirement": "FR-19",
+      "name": "graph_no_gain",
+      "scenario": "Graph yields no reproducible quality/cost improvement",
+      "expected": "Keep simpler approach rather than asserting graph superiority",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E21",
+      "requirement": "FR-19",
+      "name": "unavailable_model",
+      "scenario": "Sol/Astra comparison cannot be run on both models",
+      "expected": "Report not_run; do not fabricate relative score",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E22",
+      "requirement": "FR-20",
+      "name": "version_axes",
+      "scenario": "Document version changes while schema unchanged",
+      "expected": "Separate design/schema/profile/validator/plugin versions",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E23",
+      "requirement": "FR-20",
+      "name": "state_truth",
+      "scenario": "Package tests pass; no server deployed",
+      "expected": "Do not label runtime/host/publication complete",
+      "execution_status": "not_run"
+    },
+    {
+      "id": "V2-E24",
+      "requirement": "FR-20",
+      "name": "strict_reader",
+      "scenario": "New optional field rejected by old reader",
+      "expected": "Compatibility pair fails explicitly; version/migration required",
+      "execution_status": "not_run"
+    }
+  ]
+}

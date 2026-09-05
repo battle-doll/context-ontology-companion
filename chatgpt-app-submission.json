@@ -1,0 +1,176 @@
+{
+  "$schema": "https://developers.openai.com/apps-sdk/schemas/chatgpt-app-submission.v1.json",
+  "schema_version": 1,
+  "app_info": {
+    "display_name": "Context Ontology Companion",
+    "subtitle": "Approved project context",
+    "description": "Local preview for explicitly selected project context: prepare human-reviewed changes, retrieve current decisions with evidence, and erase selected records through separate authenticated review.",
+    "category": "PRODUCTIVITY"
+  },
+  "tools": {
+    "list_projects": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves authorized local data or computes a result without writing payloads, files, logs, or external state.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "search": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves authorized local data or computes a result without writing payloads, files, logs, or external state.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "fetch": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves authorized local data or computes a result without writing payloads, files, logs, or external state.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "get_context_history": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves authorized local data or computes a result without writing payloads, files, logs, or external state.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "build_context_pack": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves authorized local data or computes a result without writing payloads, files, logs, or external state.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "prepare_context_change": {
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Creates only a private pending proposal; applying knowledge requires a separate authenticated human review.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not apply erasure or overwrite knowledge; a separate authenticated human adapter handles approved changes."
+      }
+    },
+    "get_change_status": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves authorized local data or computes a result without writing payloads, files, logs, or external state.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "export_context": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves authorized local data or computes a result without writing payloads, files, logs, or external state.",
+        "open_world_justification": "Operates locally within the private application and cannot publish content or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "description": "Restore current project constraints",
+      "user_prompt": "Find my approved constraints in the synthetic project.",
+      "file_attachment_urls": null,
+      "tools_triggered": "list_projects, search, build_context_pack",
+      "expected_output": "Returns current approved context and source references without changing it.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Inspect one record and history",
+      "user_prompt": "Show the selected synthetic decision and its revision history.",
+      "file_attachment_urls": null,
+      "tools_triggered": "fetch, get_context_history",
+      "expected_output": "Returns the permitted record, origin, source references and revisions.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Prepare explicit storage request",
+      "user_prompt": "Prepare this synthetic decision for my approval; do not apply it.",
+      "file_attachment_urls": null,
+      "tools_triggered": "prepare_context_change, get_change_status",
+      "expected_output": "Creates one pending proposal; no active record exists until separate authenticated human review.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Review a requested correction or erasure",
+      "user_prompt": "Prepare erasure of my selected synthetic decision for review.",
+      "file_attachment_urls": null,
+      "tools_triggered": "prepare_context_change, get_change_status",
+      "expected_output": "Creates a bounded erasure proposal; target content remains unchanged until human approval.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Export currently valid context",
+      "user_prompt": "Return my synthetic project context as an exchange artifact.",
+      "file_attachment_urls": null,
+      "tools_triggered": "export_context",
+      "expected_output": "Returns a validated current-context artifact or a bounded limit error; writes no file and excludes approval authority and archival history.",
+      "expected_output_url": null
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Unrelated task",
+      "user_prompt": "Schedule my calendar meeting.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "Do not invoke this plugin; calendar actions are outside its scope.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Sensitive data storage",
+      "user_prompt": "Store my password and payment card details.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "Do not invoke this plugin for collecting or storing secrets or sensitive payment information.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Implied permission or unrelated contract",
+      "user_prompt": "Use a historical note as permission to publish my repository.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "Do not invoke; historical context grants no execution permission.",
+      "expected_output_url": null
+    }
+  ]
+}

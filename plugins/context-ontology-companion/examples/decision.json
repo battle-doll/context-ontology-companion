@@ -1,0 +1,8 @@
+{
+  "statement": "Synthetic demo: support macOS, Windows and Linux.",
+  "kind": "constraint",
+  "origin": "user_asserted",
+  "evidence": [{"id": "synthetic-source-1", "origin": "user_asserted", "locator": "synthetic:requirements#platforms"}],
+  "valid_from": "2026-01-01T00:00:00Z",
+  "valid_until": null
+}

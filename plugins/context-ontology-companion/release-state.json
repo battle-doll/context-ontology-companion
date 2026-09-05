@@ -1,0 +1,63 @@
+{
+  "product": "context-ontology-companion",
+  "product_version": "0.1.0-draft.1",
+  "contract_version": "0.1.0-draft.1",
+  "states": {
+    "design-reviewed": true,
+    "contract-drafted": true,
+    "contract-validated": true,
+    "local-implemented": true,
+    "tests-passed": true,
+    "hosted-tested": false,
+    "github-public-ready": true,
+    "github-published": false,
+    "submission-ready": true,
+    "submitted": false,
+    "approved": false,
+    "published": false
+  },
+  "os_targets": [
+    "macOS",
+    "Windows",
+    "Linux"
+  ],
+  "os_execution": {
+    "macOS": "local Python 3.12.14 synthetic tests passed",
+    "Windows": "not_run",
+    "Linux": "not_run"
+  },
+  "host_e2e": "not_run",
+  "external_actions": [],
+  "release_gate": "public skills-only preview authorized; stable contract, real-data authentication and hosted MCP remain outside this release",
+  "license_prepared": "Apache-2.0",
+  "contract_validation_scope": "draft only: actual Context export consumed by standalone Contracts; Code mapping is synthetic, full Code runtime consumer not verified",
+  "gates": {
+    "P0": "passed_for_local_synthetic_work",
+    "P1a": "local_synthetic_consumer_passed",
+    "P1b": "stable_version_not_released",
+    "P2": "local_preview_only",
+    "P3": "skills_only_public_preview_prepared",
+    "P4": "not_started_code_unchanged",
+    "P5": "not_justified"
+  },
+  "local_codex_mcp_smoke": {
+    "status": "passed",
+    "codex_version": "0.153.3",
+    "platform": "macOS",
+    "connection": "manually configured project-local stdio",
+    "scope": "10 tools discovered and invoked across Context and Contracts; no model turn",
+    "human_approval": "simulated_not_human_evidence",
+    "packaged_plugin_installation": "not_run"
+  },
+  "host_e2e_scope": "hosted ChatGPT and packaged-plugin end-to-end; excludes local Codex MCP smoke",
+  "submission_scope": "skills-only self-contained preview ZIP; no hosted MCP endpoint",
+  "publication_authorization": "user explicitly requested public registration and publishing on 2026-09-06",
+  "distribution": {
+    "github_repository": "https://github.com/battle-doll/context-ontology-companion",
+    "version": "0.1.0-draft.1",
+    "channel": "prerelease",
+    "bundle_type": "skills-only",
+    "directory_status": "not_submitted",
+    "status_snapshot": "before initial public source push; see repository main for current release-state.json"
+  }
+}
