@@ -13,11 +13,11 @@ codex plugin marketplace add battle-doll/context-ontology-companion
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-Install the complete plugin so its skill, server and schemas stay together.
+Install the complete plugin so its skill, server and schemas stay together. Then open a new Codex task in your project to use the installed skills.
 
 ## Connect your project
 
-Open your project in Codex and send:
+In the new Codex task for your project, send:
 
 ```text
 $manage-approved-context
@@ -25,6 +25,15 @@ Set up this plugin's local MCP connection for the current project.
 ```
 
 Then open a new task in the same project to use the MCP tools. For direct setup commands, installed plugin paths and operating system details, see [Local MCP setup](docs/LOCAL_MCP.md) or the [Windows quickstart](docs/WINDOWS_QUICKSTART.md).
+
+## Apply it to the current task
+
+```text
+$apply-context-ontology
+Apply Context Ontology Companion here: retrieve relevant project constraints and continue the current task.
+```
+
+This applies to the current conversation. The workflow verifies actual MCP or bundled CLI access, reuses exact saved context after readback, and saves or corrects only what you explicitly request. Similar or conflicting matches remain pending for your choice. Code and Contracts are optional; applying Context does not install or activate them.
 
 ## Use it
 
@@ -54,7 +63,7 @@ codex plugin marketplace upgrade context-ontology-preview
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-Repeat the project connection request above after updating, then open a new task so the connection uses the installed version.
+After updating, open a new Codex task in your project so it loads the updated skills. Repeat the project connection request above from that task, then open another new task to use the updated MCP connection.
 
 ## Help
 

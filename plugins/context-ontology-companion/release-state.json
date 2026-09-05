@@ -1,13 +1,11 @@
 {
   "product": "context-ontology-companion",
-  "product_version": "0.1.0",
+  "product_version": "0.1.1",
   "contract_version": "0.1.0-draft.1",
   "previous_release": {
-    "product_version": "0.1.0-draft.1",
-    "github_release": "https://github.com/battle-doll/context-ontology-companion/releases/tag/v0.1.0-draft.1",
-    "directory_published": true,
-    "directory_url": "https://chatgpt.com/plugins/plugins_6a9c396cbca881919b1d1bf2667b6842",
-    "verification": "Published status read in authenticated portal 2026-09-06 KST"
+    "product_version": "0.1.0",
+    "github_release": "https://github.com/battle-doll/context-ontology-companion/releases/tag/v0.1.0",
+    "scope": "Previous local-use release; not evidence for the new application workflow."
   },
   "states": {
     "design-reviewed": true,
@@ -16,7 +14,7 @@
     "local-implemented": true,
     "tests-passed": true,
     "hosted-tested": false,
-    "github-public-ready": true,
+    "github-public-ready": false,
     "github-published": false,
     "submission-ready": false,
     "submitted": false,
@@ -29,37 +27,17 @@
     "Linux"
   ],
   "os_execution": {
-    "macOS": "PASS: local Python 3.12.14 checks and actual Codex 0.153.3 local MCP; current-version hosted CI pending",
-    "Windows": "pending current-version CI; no native local execution in this packaging session",
-    "Linux": "pending current-version CI; no native local execution in this packaging session"
+    "macOS": "PASS: Python 3.12.14 local product, design, reference and independent apply checks; candidate host verification and current-version CI remain separate",
+    "Windows": "pending current-version CI",
+    "Linux": "pending current-version CI"
   },
   "local_mcp": {
-    "status": "PASS",
-    "scope": "actual current-project Codex local stdio MCP via two separate fresh app-server processes",
+    "status": "candidate host verification pending",
     "context_tool_count": 12,
-    "contracts_tool_count": 4,
-    "combined_discovered_tool_count": 16,
-    "requirements_saved_and_recovered": 4,
-    "checks": [
-      "save_context",
-      "fresh host reconnect",
-      "search",
-      "fetch",
-      "get_context_history",
-      "get_change_status",
-      "build_context_pack",
-      "export_context",
-      "standalone Contracts validate_artifact L0/L1/L2 valid"
-    ],
-    "authorization_mode": "os_account_explicit_request",
-    "human_review_performed": false,
-    "model_turns": 0,
-    "configuration_unchanged": true,
-    "records_preserved": true,
-    "chatgpt_hosted_e2e": "not_run",
-    "evidence_description": "Workspace local-use-0.1.0 verification records the exact generic user requirements, source locators, UTC effective time, saved IDs and authorization receipts; private runtime storage is not included in the product."
+    "optional_review_tool_count": 8,
+    "scope": "Current-task application skill discovery and actual host calls require separate verification; handoffs are not execution."
   },
-  "release_gate": "Local source, product, schema and metadata checks passed. Current-version hosted CI, GitHub publication and portal actions remain separate pending steps at this packaging snapshot.",
+  "release_gate": "Source implementation and independent local review passed. Final generated packaging, candidate host verification, platform CI and publication remain separate pending steps.",
   "known_limits": [
     "same OS-account processes are not isolated",
     "Windows ACL isolation not independently verified",
@@ -68,18 +46,17 @@
   ],
   "distribution": {
     "github_repository": "https://github.com/battle-doll/context-ontology-companion",
-    "version": "0.1.0",
-    "bundle_type": "skills with complete local MCP runtime and setup helper",
-    "directory_status": "new version not uploaded yet"
+    "version": "0.1.1",
+    "bundle_type": "independent apply/manage skills with local MCP, CLI and setup helper",
+    "directory_status": "candidate not uploaded"
   },
-  "publication_authorization": "user requested version-up GitHub deployment and new portal draft; user handles approval and Publish",
-  "as_of_utc": "2026-09-05T17:20:07Z",
-  "snapshot_kind": "immutable pre-publication packaging snapshot",
+  "as_of_utc": "2026-09-05T19:24:42Z",
+  "snapshot_kind": "pre-publication candidate preparation snapshot",
   "snapshot_scope": "Current-version local verification at packaging time. Subsequent GitHub CI, release and Directory states can advance without rewriting this bundled snapshot.",
   "local_checks": {
     "product_tests": {
-      "passed": 60,
-      "scope": "synthetic product tests including local OS-account and authenticated HTTP profiles"
+      "passed": 71,
+      "scope": "synthetic isolated product tests including 11 apply-workflow cases and unchanged authenticated-review protections"
     },
     "design_package_tests": {
       "passed": 32
@@ -87,11 +64,12 @@
     "reference_tests": {
       "passed": 20
     },
+    "independent_apply_review": "PASS on isolated synthetic stores; plans and handoffs remain unexecuted, future/expired records remain outside current continuation evidence",
     "schema_validation": "PASS",
-    "file_manifest": "PASS at packaging",
-    "public_source_gate": "PASS; review 8/local 12 catalog parity; not publication approval",
+    "public_source_gate": "PASS: local 12/review 8 metadata parity and both skills present",
     "plugin_manifest_validation": "PASS",
-    "skill_validation": "PASS",
-    "ci_configuration": "macOS/Windows/Linux x Python 3.11/3.12/3.13; scripts/check.py includes all product tests"
+    "skill_validation": "PASS: apply-context-ontology and manage-approved-context",
+    "final_generated_bundle": "pending root packaging after source freeze",
+    "ci_configuration": "macOS/Windows/Linux x Python 3.11/3.12/3.13"
   }
 }

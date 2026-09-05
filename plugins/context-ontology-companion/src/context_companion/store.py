@@ -13,6 +13,7 @@ from pathlib import Path
 import re
 import secrets
 import sqlite3
+from . import __version__
 
 MAX_BYTES = 65_536
 ORIGINS = {"user_asserted", "source_observed", "model_inferred"}
@@ -388,7 +389,7 @@ class Store:
                 evidence.append({**e,"id":eid,"scope":project})
                 refs.append(eid)
             decisions.append({"id":r["id"],"statement":r["statement"],"kind":r["kind"],"origin":r["origin"],"evidence_refs":refs,"valid_from":r["valid_from"],"valid_until":r["valid_until"],"recorded_at":r["recorded_at"]})
-        artifact={"contract_version":"0.1.0-draft.1","profile":"context-decision","artifact_id":"export_"+digest(decisions)[:24],"producer":{"name":"context-ontology-companion","version":"0.1.0"},"evidence":evidence,"payload":{"scope":project,"decisions":decisions}}
+        artifact={"contract_version":"0.1.0-draft.1","profile":"context-decision","artifact_id":"export_"+digest(decisions)[:24],"producer":{"name":"context-ontology-companion","version":__version__},"evidence":evidence,"payload":{"scope":project,"decisions":decisions}}
         from companion_contracts import validate_artifact
         if validate_artifact(artifact)["status"]!="valid":
             raise ContextError("EXPORT_CONTRACT_LIMIT_OR_MISMATCH")

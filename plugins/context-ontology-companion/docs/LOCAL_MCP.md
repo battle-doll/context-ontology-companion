@@ -1,4 +1,4 @@
-# Local MCP — plugin 0.1.0
+# Local MCP — plugin 0.1.1
 
 Both products include their complete Python server and a project-scoped Codex setup helper. Python 3.11+ is required. No cloud account, API key, Docker, Node.js, or remote endpoint is needed. This setup is available on macOS, Windows, and Linux.
 
@@ -26,7 +26,7 @@ py -3.12 -X utf8 -B "C:\path\context-ontology-companion\scripts\setup_mcp.py" --
 
 Use an installed Python 3.11+ executable if `py -3.12` is unavailable. The helper records the current absolute Python interpreter and plugin launcher paths in that project's `.codex/config.toml`. It preserves unrelated configuration. Without `--install`, it only prints the proposed TOML; it does not initialize storage or write configuration. Repeated installation is idempotent. Conflicting settings the helper does not own are reported instead of overwritten.
 
-Open a new Codex task in the same project after setup. Invoke `$manage-approved-context` and request the required workflow. A running task may retain its original tool list; the CLI performs the same operations when MCP has not yet loaded.
+Open a new Codex task in the same project after setup. Invoke `$apply-context-ontology` to use relevant context in the current task, or `$manage-approved-context` for ordinary record operations. A running task may retain its original tool list; the CLI performs the same operations when MCP has not yet loaded.
 
 Plugin updates install a new version directory. Rerun this helper from the new installed version to update the owned MCP path, then start a new task. Do not mix server and library files from different versions.
 

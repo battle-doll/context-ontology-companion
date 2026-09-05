@@ -11,6 +11,11 @@ ROOT=Path(__file__).resolve().parents[1]
 IGNORE={".git",".venv","__pycache__","dist","build",".pytest_cache"}
 required=["README.md","README.ko.md","README.ja.md","README.zh-CN.md","README.ru.md","LICENSE","SECURITY.md","PRIVACY.md","SUPPORT.md","CONTRIBUTING.md","CHANGELOG.md",".github/workflows/ci.yml","release-state.json","chatgpt-app-submission.json","mcp-tool-catalog.json","docs/MCP_PROFILES.md"]
 errors=["missing: "+p for p in required if not (ROOT/p).is_file()]
+for skill in ("manage-approved-context", "apply-context-ontology"):
+    for relative in ("SKILL.md", "agents/openai.yaml"):
+        if not (ROOT/"skills"/skill/relative).is_file(): errors.append("missing skill discovery file: "+skill+"/"+relative)
+if not (ROOT/"skills/apply-context-ontology/scripts/apply_workflow.py").is_file():
+    errors.append("missing executable Context apply workflow")
 links=0
 for p in sorted(ROOT.rglob("*")):
     if any(x in IGNORE for x in p.relative_to(ROOT).parts) or p.name in {".DS_Store","Thumbs.db"} or p.suffix==".pyc": continue

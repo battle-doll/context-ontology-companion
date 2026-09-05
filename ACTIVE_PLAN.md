@@ -1,5 +1,5 @@
-# Active plan — 0.1.0 local use
+# Active plan — 0.1.1 application workflow
 
-Implement actual OS-account local Context usage, local MCP setup for both products, and bounded Code snapshot conversion. Verify current-project persistence and MCP calls, package and run 3 OS CI, update installed version, then publish GitHub0.1.0 and upload new portal drafts. User handles portal approval and Publish.
+Prepare the independent apply-context-ontology skill and bundled executable workflow. Verify actual retrieval, scoped writes, duplicate reuse, revision retries and conversation-only routing. Package after independent review; platform CI and public distribution remain separate release steps.
 
-Keep README focused on product users. Record engineering evidence in release-state.json and reports. Preserve existing Code plugin, old trial stores, published tags and assets.
+Preserve the existing Code product, working installations, project configuration, authenticated-review profile and versioned exchange contract.

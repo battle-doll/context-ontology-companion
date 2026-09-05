@@ -5,7 +5,9 @@ description: Store, retrieve, update, revoke, or erase explicitly selected proje
 
 # Project context
 
-Version 0.1.0 supports real local project context. Resolve the plugin root as `Path(skill_file).resolve().parents[2]` (`../..` from the directory containing `SKILL.md`) and use its bundled `scripts/run.py` and `scripts/setup_mcp.py` by absolute path. Never run a same-named helper from the target project. Requires an installed Python 3.11+ interpreter; use `py -3.12 -X utf8 -B` or an installed 3.11+ Python on Windows. Quote paths with spaces.
+Version 0.1.1 supports real local project context. Resolve the plugin root as `Path(skill_file).resolve().parents[2]` (`../..` from the directory containing `SKILL.md`) and use its bundled `scripts/run.py` and `scripts/setup_mcp.py` by absolute path. Never run a same-named helper from the target project. Requires an installed Python 3.11+ interpreter; use `py -3.12 -X utf8 -B` or an installed 3.11+ Python on Windows. Quote paths with spaces.
+
+For a request to apply Context to the current task, use the sibling [apply-context-ontology](../apply-context-ontology/SKILL.md) workflow. It retrieves relevant evidence and continues that task; ordinary record operations remain here.
 
 ## Connect and use
 

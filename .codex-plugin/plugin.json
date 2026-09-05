@@ -1,6 +1,6 @@
 {
   "name": "context-ontology-companion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Save and recover explicitly selected project context locally with provenance and revision history.",
   "author": {
     "name": "battle-doll",
@@ -11,12 +11,12 @@
   "interface": {
     "displayName": "Context Ontology Companion",
     "shortDescription": "Save project context",
-    "longDescription": "Store, retrieve, correct, revoke and erase explicitly selected project decisions and constraints on your own computer. Includes project-scoped local MCP setup and a Python 3.11+ CLI. Preserves sources, revisions and caller-declared OS-account authorization; stored context never authorizes later actions.",
+    "longDescription": "Apply relevant project context to the current task, or store, retrieve, correct, revoke and erase explicitly selected decisions and constraints. Includes separate apply/manage skills, project-scoped local MCP setup and a Python 3.11+ CLI. Preserves sources, revisions and caller-declared OS-account authorization; stored context never authorizes later actions.",
     "developerName": "battle-doll",
     "category": "Productivity",
     "defaultPrompt": [
-      "Save my explicitly stated project requirements and verify retrieval.",
-      "Restore this project’s current context with sources."
+      "Use $apply-context-ontology to apply relevant project context to this conversation and continue the current task.",
+      "Use $manage-approved-context to save my explicitly selected project requirement and verify retrieval."
     ],
     "capabilities": [
       "Project-scoped local MCP and CLI",

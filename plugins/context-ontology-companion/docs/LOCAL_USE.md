@@ -53,3 +53,5 @@ Read tools: `list_projects`, `search`, `fetch`, `get_context_history`, `build_co
 Write tools: `save_context`, `update_context`, `contradict_context`, `revoke_context`, `delete_context`. Each write requires the actual user's current request; the authorization argument records the caller's declaration, not independent proof of human identity. The server is bound to the project configured at startup.
 
 Stored context does not authorize future file changes, network requests, messages or deployments. Apply the user's current instructions each time.
+
+For current-task application with duplicate checking and verified readback, invoke `$apply-context-ontology`; see the [apply skill](../skills/apply-context-ontology/SKILL.md).

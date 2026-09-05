@@ -78,7 +78,7 @@ class LocalWorkflowTests(unittest.TestCase):
         self.assertEqual(recovered["evidence"], candidate()["evidence"])
         artifact = self.cli("export")
         self.assertEqual(validate_artifact(artifact)["status"], "valid")
-        self.assertEqual(artifact["producer"]["version"], "0.1.0")
+        self.assertEqual(artifact["producer"]["version"], "0.1.1")
         self.assertNotIn("authorization", artifact["payload"]["decisions"][0])
         self.input.write_text(json.dumps(candidate("수정한 합성 결정")), encoding="utf-8")
         changed = self.cli("update", "--id", record_id, "--expected-revision", "1", "--input", str(self.input),
@@ -158,7 +158,7 @@ class LocalWorkflowTests(unittest.TestCase):
                                 cwd=self.cwd, env=self.environment, input="\n".join(json.dumps(request) for request in requests) + "\n", capture_output=True, text=True, encoding="utf-8", timeout=20)
         self.assertEqual(result.returncode, 0, result.stderr)
         responses = {item["id"]: item for item in map(json.loads, result.stdout.splitlines())}
-        self.assertEqual(responses[1]["result"]["serverInfo"]["version"], "0.1.0")
+        self.assertEqual(responses[1]["result"]["serverInfo"]["version"], "0.1.1")
         self.assertEqual({tool["name"] for tool in responses[2]["result"]["tools"]}, {tool["name"] for tool in TOOLS})
         self.assertFalse(responses[3]["result"]["isError"])
         self.assertEqual(len(responses[4]["result"]["structuredContent"]["result"]["records"]), 1)

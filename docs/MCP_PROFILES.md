@@ -1,6 +1,6 @@
 # MCP profiles and review metadata
 
-Version 0.1.0 has two separate local transports. Select the profile whose trust model matches the requested workflow; their tools and stores are not interchangeable.
+Version 0.1.1 has two separate local transports. Select the profile whose trust model matches the requested workflow; their tools and stores are not interchangeable.
 
 | Profile | Launch command | Tools | Write authority |
 | --- | --- | --- | --- |

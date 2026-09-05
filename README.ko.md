@@ -13,11 +13,11 @@ codex plugin marketplace add battle-doll/context-ontology-companion
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-스킬, 서버, 스키마가 함께 제공되는 전체 플러그인을 설치하세요.
+스킬, 서버, 스키마가 함께 제공되는 전체 플러그인을 설치하세요. 설치 후 프로젝트에서 새 Codex 작업을 열면 설치된 스킬을 사용할 수 있습니다.
 
 ## 프로젝트 연결
 
-Codex에서 사용할 프로젝트를 열고 다음과 같이 요청하세요.
+프로젝트의 새 Codex 작업에서 다음과 같이 요청하세요.
 
 ```text
 $manage-approved-context
@@ -25,6 +25,15 @@ $manage-approved-context
 ```
 
 설정 후 같은 프로젝트에서 새 작업을 열면 MCP 도구를 사용할 수 있습니다. 직접 실행할 명령, 설치된 플러그인 경로, 운영체제별 안내는 [로컬 MCP 설정](docs/LOCAL_MCP.md)과 [Windows 빠른 시작](docs/WINDOWS_QUICKSTART.md)을 참고하세요.
+
+## 현재 작업에 적용
+
+```text
+$apply-context-ontology
+Context Ontology Companion을 여기에 적용해줘. 관련 프로젝트 제약을 조회하고 지금 작업을 이어가줘.
+```
+
+현재 대화 범위에 적용합니다. 실제 MCP 또는 번들 CLI 경로를 확인하고, 동일한 저장 문맥은 다시 읽어 재사용합니다. 저장·수정은 명시적으로 요청한 내용만 수행하며 비슷하거나 충돌하는 기록은 대상 선택을 기다립니다. Code와 Contracts는 선택 사항이며, Context 적용이 다른 제품 설치나 활성화를 뜻하지 않습니다.
 
 ## 사용
 
@@ -54,7 +63,7 @@ codex plugin marketplace upgrade context-ontology-preview
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-업데이트 후 위의 프로젝트 연결 요청을 다시 실행하고 새 작업을 열면 새로 설치된 버전을 사용합니다.
+업데이트 후 프로젝트에서 새 Codex 작업을 열어 갱신된 스킬을 불러오세요. 그 작업에서 위의 프로젝트 연결을 다시 요청한 뒤, 새 작업을 한 번 더 열면 갱신된 MCP 연결을 사용할 수 있습니다.
 
 ## 도움말
 

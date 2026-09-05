@@ -1,5 +1,5 @@
-# Current state — local use 0.1.0
+# Current state — 0.1.1 candidate
 
-User explicitly requested removing synthetic-only local-use restrictions and supplying local MCP like Code Ontology Companion. The new OS-account profile supports persistent selected real project context and records caller-declared current authorization rather than simulated or independently authenticated web approval. The existing web-review profile and trial store remain separate. Local Context exposes 12 tools; Contracts adds conversion to its local MCP. Setup helpers own only their project configuration blocks.
+The candidate adds separate apply/manage skill discovery and an executable same-bundle Context application workflow. Actual CLI reads and verified readback are distinct from plans or pending MCP handoffs. Optional Code and Contracts steps use their own currently available workflows; no persistent activation is added.
 
-See [release-state](../../release-state.json) for the immutable current-version packaging snapshot; later CI and publication results are tracked separately. Readme contains product usage only.
+The local MCP retains 12 tools and the optional authenticated-review profile retains eight. See [release-state](../../release-state.json) for the candidate packaging snapshot. Subsequent CI and publication results may advance independently.

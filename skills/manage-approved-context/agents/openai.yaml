@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Project Context"
+  short_description: "Save and recover selected project context"
+  default_prompt: "Use $manage-approved-context to retrieve selected project context with sources, or carry out my explicitly requested save or correction and verify the result."

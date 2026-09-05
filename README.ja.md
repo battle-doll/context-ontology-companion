@@ -13,11 +13,11 @@ codex plugin marketplace add battle-doll/context-ontology-companion
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-スキル、サーバー、スキーマを含むプラグイン全体をインストールしてください。
+スキル、サーバー、スキーマを含むプラグイン全体をインストールしてください。インストール後、プロジェクトで新しい Codex タスクを開くと、インストールしたスキルを利用できます。
 
 ## プロジェクトに接続
 
-Codex で対象のプロジェクトを開き、次のように依頼します。
+対象プロジェクトの新しい Codex タスクで、次のように依頼します。
 
 ```text
 $manage-approved-context
@@ -25,6 +25,15 @@ $manage-approved-context
 ```
 
 設定後、同じプロジェクトで新しいタスクを開くと MCP ツールを利用できます。直接実行するコマンド、インストール先の確認方法、OS 別の手順は [ローカル MCP 設定](docs/LOCAL_MCP.md) と [Windows クイックスタート](docs/WINDOWS_QUICKSTART.md) を参照してください。
+
+## 現在の作業に適用
+
+```text
+$apply-context-ontology
+Context Ontology Companionをここに適用し、関連するプロジェクトの制約を取得して現在の作業を続けてください。
+```
+
+適用範囲は現在の会話です。実際のMCPまたは同梱CLIを確認し、完全に一致する保存済み情報は再取得して利用します。保存・修正は明示的な依頼に限り、類似・矛盾する記録は対象の選択を待ちます。CodeとContractsは任意であり、他製品のインストールや有効化は行いません。
 
 ## 使い方
 
@@ -54,7 +63,7 @@ codex plugin marketplace upgrade context-ontology-preview
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-アップデート後は上記の接続設定を再度依頼し、新しいタスクを開いてインストール済みの新バージョンを利用してください。
+アップデート後、プロジェクトで新しい Codex タスクを開き、更新されたスキルを読み込んでください。そのタスクで上記の接続設定を再度依頼し、さらに新しいタスクを開くと、更新された MCP 接続を利用できます。
 
 ## ヘルプ
 

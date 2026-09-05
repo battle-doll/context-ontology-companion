@@ -1,5 +1,13 @@
 # Changelog
 
+## Plugin 0.1.1 — apply context to a task
+
+- Add the independently discoverable `apply-context-ontology` skill and a same-bundle executable workflow for current-conversation use.
+- Query relevant context first, reuse exact candidates with verified readback, and keep similar or conflicting matches pending for a target choice. Corrections retain expected-revision and stable-request retry checks.
+- Distinguish observed capabilities, routing plans, pending MCP calls and actual CLI evidence. Preserve shared conversation receipts without activation files or global configuration changes.
+- Continue the original task using retrieved provenance, effective time and the refreshed complete context pack. Code and Contracts remain optional, separately executed products.
+- Preserve the existing 12 local MCP tools, eight optional web-review tools and `0.1.0-draft.1` exchange contract.
+
 ## Plugin 0.1.0 — 2026-09-06 local project use
 
 - Save, retrieve, correct, contradict, revoke and erase explicitly selected real project context through the local CLI or 12 project-bound MCP tools.

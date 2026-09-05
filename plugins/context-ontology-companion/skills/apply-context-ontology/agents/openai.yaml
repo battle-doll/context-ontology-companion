@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apply Context Ontology"
+  short_description: "Apply project context to this task"
+  default_prompt: "Use $apply-context-ontology to retrieve relevant Context Ontology Companion records for this conversation, verify any explicitly requested save, and continue the current task."

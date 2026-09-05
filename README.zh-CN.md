@@ -13,11 +13,11 @@ codex plugin marketplace add battle-doll/context-ontology-companion
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-请安装完整插件，以便技能、服务器和模式文件保持配套。
+请安装完整插件，以便技能、服务器和模式文件保持配套。安装后，在项目中打开新的 Codex 任务，即可使用已安装的技能。
 
 ## 连接项目
 
-在 Codex 中打开目标项目，然后发送：
+在目标项目的新 Codex 任务中发送：
 
 ```text
 $manage-approved-context
@@ -25,6 +25,15 @@ $manage-approved-context
 ```
 
 设置完成后，在同一项目中打开新任务即可使用 MCP 工具。直接运行的命令、已安装插件的路径和各操作系统的说明，请参阅[本地 MCP 设置](docs/LOCAL_MCP.md)或 [Windows 快速入门](docs/WINDOWS_QUICKSTART.md)。
+
+## 应用于当前任务
+
+```text
+$apply-context-ontology
+在这里应用 Context Ontology Companion，检索相关项目约束并继续当前任务。
+```
+
+作用范围为当前对话。工作流确认实际可用的MCP或随包CLI，并重新读取完全一致的已存上下文后复用。仅按明确请求保存或修改；相似或冲突的记录等待选择目标。Code与Contracts是可选产品，应用Context不会安装或启用它们。
 
 ## 使用
 
@@ -54,7 +63,7 @@ codex plugin marketplace upgrade context-ontology-preview
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-更新后，请再次发送上面的项目连接请求，然后打开新任务，使连接使用新安装的版本。
+更新后，请在项目中打开新的 Codex 任务以加载更新后的技能。在该任务中再次发送上面的项目连接请求，然后再打开一个新任务，即可使用更新后的 MCP 连接。
 
 ## 帮助
 
