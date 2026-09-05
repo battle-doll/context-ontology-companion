@@ -1,16 +1,7 @@
 # Support
 
-This repository is a local development preview. Public issue availability, plugin-directory installation, commercial support, and an SLA are not claimed.
+Use the [GitHub issue tracker](https://github.com/battle-doll/context-ontology-companion/issues) for installation, local MCP and runtime bugs. Provide the product version, OS, Python version, exact command and a minimal non-sensitive reproduction. Remove personal paths and private data from logs. Report vulnerabilities through [Security](SECURITY.md).
 
-When reporting an ordinary problem, provide:
+Version 0.1.0 supports macOS, Windows and Linux with Python 3.11+. [Local MCP](docs/LOCAL_MCP.md) and [Windows quickstart](docs/WINDOWS_QUICKSTART.md) cover setup. If a fresh connection has not loaded in an existing task, the bundled CLI performs the same local workflow. A cloud-only host cannot access local files without a suitable connection.
 
-- The product name, exact revision, operating system and architecture.
-- Python version and the exact command, working directory, and exit code.
-- Expected behavior, observed behavior, and a small synthetic input.
-- Whether the issue occurs in the local CLI, a configured CI job, or an actual plugin host.
-
-Remove personal paths and sensitive text from diagnostic output. Use the bug-report template after an issue tracker is available; during local work, share the same information in the existing development discussion. Report vulnerabilities according to [SECURITY.md](SECURITY.md).
-
-The target systems are macOS, Windows, and Linux with Python 3.11+. Consult [the OS guide](docs/PLATFORMS.md) for commands and execution evidence. An unavailable interpreter or plugin host is distinct from a validator failure.
-
-English, Korean, Japanese, Simplified Chinese, and Russian documentation is included. Translated policy pages summarize the detailed English policies and link directly to them. Report a mismatch as a documentation bug; a translation does not add capabilities or permissions.
+English, Korean, Japanese, Simplified Chinese and Russian README navigation is provided. Commercial support and an SLA are not included.

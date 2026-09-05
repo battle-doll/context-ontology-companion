@@ -15,7 +15,7 @@ def main():
     actual={p.relative_to(ROOT/"vendor").as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/"vendor/companion_contracts").rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix!=".pyc"}
     if actual!=pin["files"]: raise SystemExit("Vendored contract digest mismatch")
     if hashlib.sha256((ROOT/"vendor/CONTRACTS_LICENSE").read_bytes()).hexdigest()!=pin["license_sha256"]: raise SystemExit("Vendored license digest mismatch")
-    for args in [["-m","unittest","discover","-s","tests_product","-v"],["scripts/run.py","demo"],["scripts/run.py","tools"]]:
+    for args in [["-m","unittest","discover","-s","tests_product","-v"],["scripts/run.py","demo"],["scripts/run.py","tools"],["scripts/run.py","tools","--profile","local"]]:
         result=subprocess.run([sys.executable,*args],cwd=ROOT,capture_output=True,text=True,encoding="utf-8")
         if result.returncode:
             print(result.stdout); print(result.stderr,file=sys.stderr); return result.returncode

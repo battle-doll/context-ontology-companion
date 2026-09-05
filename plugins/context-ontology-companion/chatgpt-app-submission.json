@@ -3,8 +3,8 @@
   "schema_version": 1,
   "app_info": {
     "display_name": "Context Ontology Companion",
-    "subtitle": "Approved project context",
-    "description": "Local preview for explicitly selected project context: prepare human-reviewed changes, retrieve current decisions with evidence, and erase selected records through separate authenticated review.",
+    "subtitle": "Reviewed project context",
+    "description": "Optional authenticated local-review profile: prepare selected project-context changes, retrieve reviewed decisions with evidence, and apply correction or erasure through separate password-authenticated loopback review. These eight tools are separate from the twelve OS-account local-use tools in version 0.1.0. No hosted ChatGPT endpoint is provided.",
     "category": "PRODUCTIVITY"
   },
   "tools": {

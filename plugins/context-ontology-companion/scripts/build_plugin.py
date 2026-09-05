@@ -30,14 +30,14 @@ ROOT_FILES = {".gitattributes", ".gitignore", "ACTIVE_PLAN.md", "AGENTS.md", "CH
               "NEXT_ACTIONS.md", "PRIVACY.md", "README.md", "README.ko.md", "README.ja.md",
               "README.zh-CN.md", "README.ru.md", "RISK_REGISTER.md", "SECURITY.md", "START_HERE.md",
               "SUPPORT.md", "TERMS.md", "TEST_EVIDENCE.md", "artifact-manifest.json", "chatgpt-app-submission.json",
-              "release-intent.json", "release-state.json", "requirements-dev.txt"}
+              "release-intent.json", "release-state.json", "requirements-dev.txt", "mcp-tool-catalog.json"}
 EXCLUDED = {".git", ".agents", "plugins", "dist", "build", ".venv", "venv", "node_modules",
             "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", "cache", "caches",
             "user-data", "runtime-data", "logs", "exports", "backups", ".local"}
 SUFFIXES = {".py", ".json", ".md", ".txt", ".yaml", ".yml"}
 ASSET_SUFFIXES = {".svg", ".png"}
 SPECIAL_FILES = {"vendor/CONTRACTS_LICENSE"}
-PRIVATE_NAMES = {"operator.json", "credentials.json", "auth.json", ".bootstrap-state.json"}
+PRIVATE_NAMES = {"operator.json", "local-cli.json", "credentials.json", "auth.json", ".bootstrap-state.json"}
 ZIP_DATE = (2026, 9, 5, 0, 0, 0)
 
 

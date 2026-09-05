@@ -25,7 +25,10 @@ from context_companion.tools import TOOLS
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     sub=parser.add_subparsers(dest="command",required=True)
-    sub.add_parser("tools")
+    from context_companion.local_cli import add_arguments
+    add_arguments(sub)
+    catalog = sub.add_parser("tools", help="Print descriptors without opening or initializing a store")
+    catalog.add_argument("--profile", choices=["review", "local"], default="review")
     sub.add_parser("demo")
     init=sub.add_parser("init-local",help="Human operator only: initialize private local storage with a password prompt")
     init.add_argument("--home",type=Path,required=True)
@@ -39,8 +42,19 @@ def main():
     maintenance=sub.add_parser("purge-expired",help="Local operator maintenance: remove expired proposal payloads")
     maintenance.add_argument("--home",type=Path,required=True)
     args=parser.parse_args()
-    if args.command=="tools":
-        print(json.dumps({"tools":TOOLS},ensure_ascii=False,indent=2))
+    if args.command.startswith("local-"):
+        from context_companion.local_cli import run
+        result = run(args)
+        if result is not None: print(json.dumps(result,ensure_ascii=False,indent=2))
+    elif args.command=="tools":
+        if args.profile == "local":
+            from context_companion.local_cli import PROFILE
+            from context_companion.local_mcp import TOOLS as LOCAL_TOOLS
+            result = {"profile": PROFILE, "authorization_mode": PROFILE,
+                      "human_review_performed": False, "tools": LOCAL_TOOLS}
+        else:
+            result = {"tools": TOOLS}
+        print(json.dumps(result,ensure_ascii=False,indent=2))
     elif args.command=="demo":
         from companion_contracts import validate_artifact
         candidate=json.loads((ROOT/"examples/decision.json").read_text(encoding="utf-8"))
@@ -84,4 +98,7 @@ if __name__=="__main__":
     try: main()
     except ContextError as exc:
         print(json.dumps({"error":exc.code}),file=sys.stderr)
+        raise SystemExit(1)
+    except OSError:
+        print(json.dumps({"error":"LOCAL_STORAGE_OR_IO_UNAVAILABLE"}),file=sys.stderr)
         raise SystemExit(1)

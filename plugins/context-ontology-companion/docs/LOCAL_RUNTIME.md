@@ -1,3 +1,9 @@
+# Optional web-review profile
+
+Version 0.1.0 provides the [OS-account local MCP/CLI workflow](LOCAL_MCP.md) for normal real local project use. The older password-based web-review profile below remains separate. Its setup restrictions apply to that profile, not the local OS-account workflow.
+
+---
+
 # Local runtime preview
 
 Python 3.11+ is required. The CLI, core, and stdio use the standard library plus the bundled, digest-pinned Contracts validator. No API key or additional plugin installation is needed. This profile trusts the local OS account and administrator; it cannot defend against another process with the same unrestricted filesystem access. The human review adapter is a prototype, not production remote authentication.

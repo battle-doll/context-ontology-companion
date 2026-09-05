@@ -1,8 +1,8 @@
 {
   "contract_version": "0.1.0-draft.1",
-  "source": "sibling local ontology-companion-contracts/src/companion_contracts, unpublished",
+  "source": "battle-doll/ontology-companion-contracts v0.1.0-draft.1 (vendored unchanged validator assets)",
   "intended_repository": "battle-doll/ontology-companion-contracts",
-  "upstream_commit": null,
+  "upstream_commit": "91eeaef800eb42a668dd306c3e22e3ddc9283d9e",
   "license": "Apache-2.0",
   "copied_license": "CONTRACTS_LICENSE",
   "files": {

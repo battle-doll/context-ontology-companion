@@ -30,6 +30,13 @@ class Principal:
     subject: str
 
 
+@dataclass(frozen=True)
+class LocalAuthorization:
+    """Caller assertion from the trusted OS-account CLI, not human authentication."""
+    actor_key: str
+    request_id: str
+
+
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False)
 
@@ -118,6 +125,8 @@ class Store:
             nonce TEXT, expires TEXT, idem TEXT, state TEXT, result_id TEXT,
             UNIQUE(subject,project,idem));
           CREATE TABLE IF NOT EXISTS relations(subject TEXT, project TEXT, source TEXT, target TEXT, kind TEXT);
+          CREATE TABLE IF NOT EXISTS local_authorizations(proposal_id TEXT PRIMARY KEY, subject TEXT,
+            project TEXT, record_id TEXT, actor_key TEXT, request_id TEXT, authorized_at TEXT);
         """)
 
     def close(self):
@@ -252,37 +261,82 @@ class Store:
                 raise ContextError("APPROVAL_NOT_PENDING")
             if not isinstance(expected_digest, str) or not isinstance(nonce, str) or not secrets.compare_digest(row["digest"], expected_digest) or not secrets.compare_digest(row["nonce"], nonce) or digest(json.loads(row["payload"])) != expected_digest:
                 raise ContextError("APPROVAL_MISMATCH")
-            payload = json.loads(row["payload"])
-            operation, target = row["operation"], row["target"]
-            if target:
-                old = self._record(p, target)
-                if old["project"] != row["project"] or old["revision"] != row["expected_revision"]:
-                    raise ContextError("REVISION_CONFLICT")
-                if operation in {"supersede", "contradict", "revoke"} and old["status"] != "active":
-                    raise ContextError("REVISION_CONFLICT")
-            now = stamp(self.clock())
-            result_id = target
-            if operation in {"supersede", "revoke"}:
-                status = "superseded" if operation == "supersede" else "revoked"
-                self.db.execute("UPDATE records SET status=?,revision=revision+1 WHERE id=?", (status, target))
-                self.db.execute("INSERT INTO history VALUES (?,?,?,?,?)", (target, old["revision"]+1, status, old["body"], now))
-            if operation in {"create", "supersede", "contradict"}:
-                candidate = validate_candidate(payload["candidate"])
-                result_id = "ctx_"+secrets.token_hex(16)
-                self.db.execute("INSERT INTO records VALUES (?,?,?,?,?,?,?)", (result_id,p.subject,row["project"],1,"active",canonical(candidate),now))
-                self.db.execute("INSERT INTO history VALUES (?,?,?,?,?)", (result_id,1,"active",canonical(candidate),now))
-                if target:
-                    self.db.execute("INSERT INTO relations VALUES (?,?,?,?,?)", (p.subject,row["project"],result_id,target,"contradicts" if operation == "contradict" else "supersedes"))
-            if operation == "erase":
-                self.db.execute("UPDATE records SET body='{}',status='deleted',revision=revision+1 WHERE id=?", (target,))
-                self.db.execute("DELETE FROM history WHERE record_id=?", (target,))
-                self.db.execute("DELETE FROM relations WHERE source=? OR target=?", (target,target))
-                # Scrub every pending or applied copy, including creation proposal.
-                self.db.execute("UPDATE proposals SET payload='{}',nonce='',state='erased',result_id=NULL WHERE subject=? AND (target=? OR result_id=?)", (p.subject,target,target))
-            # Applied proposal retains no knowledge payload or nonce.
-            self.db.execute("UPDATE proposals SET state='applied',result_id=?,payload='{}',nonce='' WHERE id=?", (result_id,pid))
-            return self.change_status(p, pid)
+            return self._apply_change(p, row)
         return self._transaction(apply)
+
+    def _apply_change(self, p, row):
+        """Common transaction body; callers establish their distinct authority."""
+        pid = row["id"]
+        payload = json.loads(row["payload"])
+        operation, target = row["operation"], row["target"]
+        if target:
+            old = self._record(p, target)
+            if old["project"] != row["project"] or old["revision"] != row["expected_revision"]:
+                raise ContextError("REVISION_CONFLICT")
+            if operation in {"supersede", "contradict", "revoke"} and old["status"] != "active":
+                raise ContextError("REVISION_CONFLICT")
+        now = stamp(self.clock())
+        result_id = target
+        if operation in {"supersede", "revoke"}:
+            status = "superseded" if operation == "supersede" else "revoked"
+            self.db.execute("UPDATE records SET status=?,revision=revision+1 WHERE id=?", (status, target))
+            self.db.execute("INSERT INTO history VALUES (?,?,?,?,?)", (target, old["revision"]+1, status, old["body"], now))
+        if operation in {"create", "supersede", "contradict"}:
+            candidate = validate_candidate(payload["candidate"])
+            result_id = "ctx_"+secrets.token_hex(16)
+            self.db.execute("INSERT INTO records VALUES (?,?,?,?,?,?,?)", (result_id,p.subject,row["project"],1,"active",canonical(candidate),now))
+            self.db.execute("INSERT INTO history VALUES (?,?,?,?,?)", (result_id,1,"active",canonical(candidate),now))
+            if target:
+                self.db.execute("INSERT INTO relations VALUES (?,?,?,?,?)", (p.subject,row["project"],result_id,target,"contradicts" if operation == "contradict" else "supersedes"))
+        if operation == "erase":
+            self.db.execute("UPDATE records SET body='{}',status='deleted',revision=revision+1 WHERE id=?", (target,))
+            self.db.execute("DELETE FROM history WHERE record_id=?", (target,))
+            self.db.execute("DELETE FROM relations WHERE source=? OR target=?", (target,target))
+            # Scrub every pending or applied copy, including creation proposal.
+            self.db.execute("UPDATE proposals SET payload='{}',nonce='',state='erased',result_id=NULL WHERE subject=? AND (target=? OR result_id=?)", (p.subject,target,target))
+        # Applied proposal retains no knowledge payload or nonce.
+        self.db.execute("UPDATE proposals SET state='applied',result_id=?,payload='{}',nonce='' WHERE id=?", (result_id,pid))
+        return self.change_status(p, pid)
+
+    def apply_local(self, p, pid, expected_digest, authorization):
+        """Explicit OS-account CLI write; no nonce/web-click impersonation.
+
+        LocalAuthorization is caller-declared intent. It cannot establish human
+        identity or create permission from saved knowledge. The local CLI adapter
+        checks its separate OS-account configuration before calling this method.
+        """
+        if not isinstance(authorization, LocalAuthorization):
+            raise ContextError("EXPLICIT_LOCAL_AUTHORIZATION_REQUIRED")
+        if not isinstance(authorization.actor_key, str) or not re.fullmatch(r"os_[0-9a-f]{64}", authorization.actor_key):
+            raise ContextError("INVALID_LOCAL_ACTOR")
+        validate_project(authorization.request_id)
+        def apply():
+            row = self._proposal(p, pid)
+            receipt = self.db.execute("SELECT * FROM local_authorizations WHERE proposal_id=? AND subject=?", (pid, p.subject)).fetchone()
+            if row["digest"] != expected_digest:
+                raise ContextError("APPROVAL_MISMATCH")
+            if receipt:
+                if receipt["actor_key"] != authorization.actor_key or receipt["request_id"] != authorization.request_id:
+                    raise ContextError("IDEMPOTENCY_CONFLICT")
+                return self.local_change_status(p, pid)
+            if self.change_status(p, pid)["state"] != "pending":
+                raise ContextError("APPROVAL_NOT_PENDING")
+            if digest(json.loads(row["payload"])) != expected_digest:
+                raise ContextError("APPROVAL_MISMATCH")
+            result = self._apply_change(p, row)
+            self.db.execute("INSERT INTO local_authorizations VALUES (?,?,?,?,?,?,?)", (pid, p.subject, row["project"], result["record_id"], authorization.actor_key, authorization.request_id, stamp(self.clock())))
+            return self.local_change_status(p, pid)
+        return self._transaction(apply)
+
+    def local_change_status(self, p, pid):
+        result = self.change_status(p, pid)
+        receipt = self.db.execute("SELECT * FROM local_authorizations WHERE proposal_id=? AND subject=?", (pid, p.subject)).fetchone()
+        if receipt:
+            result["authorization"] = {"mode": "os_account_explicit_request", "actor_kind": "local_os_account",
+                "actor_key": receipt["actor_key"], "caller_request_id": receipt["request_id"],
+                "authorized_at": receipt["authorized_at"], "human_review_performed": False,
+                "assurance": "caller_declared_request_not_independent_human_authentication"}
+        return result
 
     def purge_expired(self):
         """Operator maintenance; no implicit write in read-only tool handlers."""
@@ -334,7 +388,7 @@ class Store:
                 evidence.append({**e,"id":eid,"scope":project})
                 refs.append(eid)
             decisions.append({"id":r["id"],"statement":r["statement"],"kind":r["kind"],"origin":r["origin"],"evidence_refs":refs,"valid_from":r["valid_from"],"valid_until":r["valid_until"],"recorded_at":r["recorded_at"]})
-        artifact={"contract_version":"0.1.0-draft.1","profile":"context-decision","artifact_id":"export_"+digest(decisions)[:24],"producer":{"name":"context-ontology-companion","version":"0.1.0-draft.1"},"evidence":evidence,"payload":{"scope":project,"decisions":decisions}}
+        artifact={"contract_version":"0.1.0-draft.1","profile":"context-decision","artifact_id":"export_"+digest(decisions)[:24],"producer":{"name":"context-ontology-companion","version":"0.1.0"},"evidence":evidence,"payload":{"scope":project,"decisions":decisions}}
         from companion_contracts import validate_artifact
         if validate_artifact(artifact)["status"]!="valid":
             raise ContextError("EXPORT_CONTRACT_LIMIT_OR_MISMATCH")

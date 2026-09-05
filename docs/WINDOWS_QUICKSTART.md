@@ -1,77 +1,64 @@
 # Windows quickstart — PowerShell
 
-You can try the synthetic Context demo with Python 3.11 or 3.12. It creates a temporary store, simulates approval, reopens the store, retrieves the example, validates its export, and removes its temporary files. It needs no API key, extra Python packages, administrator access, operator password, or running server.
+Use Python 3.11 or newer and the complete plugin package. No Docker, Node.js, API key or administrator access is required for the local workflow.
 
-This guide provides a local preview workflow. Check the repository's current CI results for Windows execution evidence; commands in documentation do not establish a Windows test pass. Windows storage ACL protection and actual human approval remain unverified. Use synthetic data for this preview.
-
-## Run the downloaded code immediately
-
-Download the complete source ZIP from the repository or a release, extract it with **Extract All**, and locate the folder containing `scripts`, `src`, `vendor`, and `examples`. Keep these folders together. A ZIP may contain an extra top-level folder such as `context-ontology-companion-main`.
-
-In PowerShell, replace the example path with that extracted folder. The quotes handle spaces and Korean characters in paths.
+## Install and connect
 
 ```powershell
-Set-Location -LiteralPath "C:\Users\You\Downloads\Context Ontology Companion\context-ontology-companion"
-py -3.12 --version
-py -3.12 -X utf8 -B .\scripts\run.py demo
-py -3.12 -X utf8 -B .\scripts\run.py tools
-```
-
-If Python 3.11 is installed instead, use these commands:
-
-```powershell
-py -3.11 --version
-py -3.11 -X utf8 -B .\scripts\run.py demo
-```
-
-Do not fall back to an older interpreter. If `py` is unavailable, choose an existing Python 3.11+ executable and use PowerShell's call operator:
-
-```powershell
-& "C:\Path To Python\python.exe" --version
-& "C:\Path To Python\python.exe" -X utf8 -B .\scripts\run.py demo
-```
-
-Successful demo output contains `status: local_synthetic_demo`, `approval: simulated_not_human_evidence`, and `contract_validation.status: valid`. `chatgpt_e2e: not_run` is expected. The recovered record is a synthetic example, not approval to act on your projects.
-
-From a complete source checkout or source-preview ZIP, run the product checks:
-
-```powershell
-py -3.12 -X utf8 -B .\scripts\check.py
-```
-
-The installed runtime plugin may omit development tests; use the complete source download for `scripts/check.py`. A virtual environment is optional; activation and PowerShell execution-policy changes are unnecessary.
-
-## Install the complete plugin in Codex
-
-Once the public GitHub repository and its marketplace manifest are available, an installed Codex CLI with plugin support can download the complete package:
-
-```powershell
-codex --version
 codex plugin marketplace add battle-doll/context-ontology-companion
+codex plugin marketplace upgrade context-ontology-preview
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-These are installation instructions, not a claim that installation has passed on your Windows machine. If `codex` or its `plugin` command is unavailable, use the direct Python demo above. Do not copy only `SKILL.md`: its runtime, vendored contracts, examples, and relative paths require the complete package.
+The installation prints the installed plugin directory. Alternatively, extract the complete `*-plugin.zip` from [GitHub Releases](https://github.com/battle-doll/context-ontology-companion/releases). Keep `scripts`, `src`, `skills`, examples and all bundled schema resources together. Copying only `SKILL.md` is insufficient.
 
-Start a new Codex task in your chosen project and send:
+Set the paths below to the installed or extracted bundle and the project you want to use:
 
-```text
-$manage-approved-context
-Run the installed plugin's synthetic demo using an existing Python 3.12 or 3.11 interpreter with UTF-8 enabled. Report the recovered sample and contract validation result. Use simulated approval only; do not initialize an operator account or save my conversations.
+```powershell
+$CompanionPlugin = "C:\path\context-ontology-companion"
+$CompanionProject = "C:\path\My Project"
+py -3.12 --version
+py -3.12 -X utf8 -B "$CompanionPlugin\scripts\setup_mcp.py" --project-root "$CompanionProject" --install
 ```
 
-Plugin installation supplies the skill and bundled runtime. It does not initialize persistent Context storage or configure the optional stdio MCP connection. The immediate demo works without either. For a separately chosen human-operated setup, read [Local runtime](LOCAL_RUNTIME.md); enter any password yourself in your own terminal, never into a chat. The Windows ACL limitation still applies.
+If Python 3.11 is installed, replace `py -3.12` with `py -3.11`. If the Python launcher is unavailable, use an existing Python 3.11+ executable with PowerShell's call operator:
 
-Codex supports explicitly invoking installed skills with `$` and loads their instructions when selected. See [OpenAI's skills guide](https://learn.chatgpt.com/docs/build-skills) and [plugin guide](https://learn.chatgpt.com/docs/build-plugins) for the host's installation and discovery model. Installing from a GitHub marketplace is distinct from publication in the universal Directory.
+```powershell
+& "C:\Path To Python\python.exe" -X utf8 -B "$CompanionPlugin\scripts\setup_mcp.py" --project-root "$CompanionProject" --install
+```
 
-## Common Windows issues
+Open a new Codex task in the selected project and invoke `$manage-approved-context`. The setup helper writes only its owned server block in that project's `.codex\config.toml` and preserves other settings. After a plugin update, rerun the helper from the new installed version to refresh the MCP command path.
 
-| Symptom | Next step |
+## Save and restore a requirement directly
+
+When using the CLI without MCP, initialize once and save a selected requirement as UTF-8 without a BOM. Replace the example statement and locator with the requirement you actually want to retain. The example uses the current UTC time for a requirement that applies immediately; use its actual effective date if different:
+
+```powershell
+py -3.12 -X utf8 -B "$CompanionPlugin\scripts\run.py" local-init --project-root "$CompanionProject"
+$ContextValidFrom = [DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+$ContextCandidate = @"
+{"statement":"This project supports macOS, Windows and Linux.","kind":"requirement","origin":"user_asserted","evidence":[{"id":"selected-source","origin":"user_asserted","locator":"conversation:explicit-user-requirement"}],"valid_from":"$ContextValidFrom","valid_until":null}
+"@
+$ContextCandidatePath = Join-Path $env:TEMP "selected-context-requirement.json"
+[IO.File]::WriteAllText($ContextCandidatePath, $ContextCandidate, [Text.UTF8Encoding]::new($false))
+py -3.12 -X utf8 -B "$CompanionPlugin\scripts\run.py" local-save --project-root "$CompanionProject" --input "$ContextCandidatePath" --authorization explicit-user-request --request-id selected-requirement-001
+py -3.12 -X utf8 -B "$CompanionPlugin\scripts\run.py" local-search --project-root "$CompanionProject" --query "Windows"
+```
+
+The local store is under your user-data directory, outside the project and plugin. Keep the returned record ID and revision for subsequent correction, revocation or deletion. The request ID is a non-sensitive retry key; reuse it only for the exact same operation. Remove your temporary input copy yourself when you no longer need it.
+
+This workflow records caller-declared authorization under the local OS account. It does not require a web-review account or simulate a human login. Windows protects the data through the user's filesystem ACL settings; do not place it in a shared directory.
+
+## Troubleshooting
+
+| Symptom | Action |
 | --- | --- |
-| `No suitable Python runtime found` | Select an already installed 3.11+ interpreter; Python provisioning is separate from this package. |
-| `ModuleNotFoundError: companion_contracts` or missing schema/example files | Extract the entire archive and preserve `vendor`, `src`, `examples`, and `scripts`. |
-| Text displays incorrectly in a terminal or pipe | Keep `-X utf8`; use a Unicode-capable terminal. Context JSON output is UTF-8. |
-| A path with spaces fails | Quote the path and use `&` when invoking a quoted executable. |
-| The marketplace repository is unavailable | Check whether the public release is available; use the downloaded source demo meanwhile. |
+| Python runtime is missing or older than 3.11 | Select an already installed supported interpreter. |
+| MCP tools are absent after setup | Open a new task in the configured project; use the CLI meanwhile. |
+| Module or schema is missing | Extract the full bundle and preserve its directory structure. |
+| A path with spaces fails | Quote it; use `&` when calling a quoted Python executable. |
+| JSON text is garbled or rejected for a BOM | Keep `-X utf8` and write UTF-8 without a BOM. |
 
-Native Windows PowerShell uses `py` and, if a venv is created, `.venv\Scripts\python.exe`. WSL/Linux is a separate runtime: use `python3` and `.venv/bin/python` there. Do not mix Windows and WSL interpreters or storage paths. Linux CLI success does not establish a desktop-host test pass.
+Native Windows and WSL are separate runtimes. Keep their Python executables, project paths and storage locations separate.
+
+[Local MCP](LOCAL_MCP.md) · [Usage](LOCAL_USE.md) · [Support](../SUPPORT.md)

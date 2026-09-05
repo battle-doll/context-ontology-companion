@@ -11,8 +11,8 @@
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "cc5733c5a2c69f1d764cc5acf92fb1737736f3c8d59e790cdf782956d4e70e18",
-      "bytes": 1689
+      "sha256": "34aee5e89b9bc550cf944ce7ca9edb1aa6bce2ad4677836d69f81884e0105047",
+      "bytes": 1809
     },
     {
       "path": ".gitattributes",
@@ -41,13 +41,13 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "9ff6b0e4b6c56dde90b43eeaa23fbbc4949db93000a8262c40093cc2cf9fa6ec",
-      "bytes": 185
+      "sha256": "499619ce59112e7e46db21f58749ed19665b4feb59cb11ab0a8c9193b213a700",
+      "bytes": 285
     },
     {
       "path": "ACTIVE_PLAN.md",
-      "sha256": "1e6b57a557f36b03886923ee8ac296230a99fef3d3645f9c7e809dc58052739b",
-      "bytes": 65
+      "sha256": "f54d1bba9980465f3343f27373b881891a08569edcf12207e662afc10ce27266",
+      "bytes": 533
     },
     {
       "path": "AGENTS.md",
@@ -56,8 +56,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "28d37320ddda4b93bb232c80691526fb058830174562f838568e94dbcbfe63df",
-      "bytes": 3347
+      "sha256": "cabe4cea7328df1f16c2e74f9f6fdfdce0af77631c2c2912e8606f21d19b2db9",
+      "bytes": 4548
     },
     {
       "path": "CONTRIBUTING.md",
@@ -91,33 +91,33 @@
     },
     {
       "path": "PRIVACY.md",
-      "sha256": "b09fceeb5886b4d6869767511c76846697fc40fcbf81443829f96613cf495113",
-      "bytes": 2243
+      "sha256": "37215abc156988649e145ef52cae2905c4784067e27f0eaafc5ca62279166841",
+      "bytes": 1755
     },
     {
       "path": "README.ja.md",
-      "sha256": "f765224b9e349d841e3b738301f6aee55f37c2808089a9faa9eaa5b7d6cc0cb4",
-      "bytes": 6041
+      "sha256": "0bb735d0c85d2d1bbd1db7f03e6408dc4d14e7c04f69c58a92e2cd75947728e5",
+      "bytes": 3353
     },
     {
       "path": "README.ko.md",
-      "sha256": "69f0a1b1c990dea9fe681656e28b3c5d44cc20880e73ab3f0f1095804c67da95",
-      "bytes": 5368
+      "sha256": "256a9c99a86a51c684e64a846cae54791fbf64b9f43debc5d82de82105d68555",
+      "bytes": 2988
     },
     {
       "path": "README.md",
-      "sha256": "cae62f8807e35645014dc0ea99263b449360cf34528de47f1aa0ae80038fa7d3",
-      "bytes": 4900
+      "sha256": "f645f9a6631d722831f226bd5de3b39103f23ae56645d1935ff35a9addfefb32",
+      "bytes": 2547
     },
     {
       "path": "README.ru.md",
-      "sha256": "abd5104058cb36491a515462a576cf1918367b119c02ce707dc490b00417cf73",
-      "bytes": 8401
+      "sha256": "3f8c69efe2f02e900a56241016bf180c6718232d22cddcaf95abb55452191ce8",
+      "bytes": 4262
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "8baf2b856a75e5b867ad3a0e6f7def7596c6915aa0227c43c86d8c7a87604ecc",
-      "bytes": 4618
+      "sha256": "55ad8a17c2d9425e39b478326704c50f4f46b23fe946d9b1fd1a5726b7cb385b",
+      "bytes": 2452
     },
     {
       "path": "RISK_REGISTER.md",
@@ -126,8 +126,8 @@
     },
     {
       "path": "SECURITY.md",
-      "sha256": "33d6458a636488a931a54228fa644468ba7c5d1ad59961e1d5fd71e681c5db69",
-      "bytes": 2125
+      "sha256": "9bb000dbf0193237539756c065368f44f73a4fb71781cc5758fe0f52007715b5",
+      "bytes": 2030
     },
     {
       "path": "START_HERE.md",
@@ -136,18 +136,23 @@
     },
     {
       "path": "SUPPORT.md",
-      "sha256": "5c66fb2a797a215c8306fcd129da730d0aa9722b7ec780a8172b28290895652c",
-      "bytes": 1303
+      "sha256": "5fe4968b83608e2b1ed84826e660aa7aff1e3556396bd05cc0a6424ab9cc8fdb",
+      "bytes": 851
     },
     {
       "path": "TERMS.md",
-      "sha256": "a8c942728d190311dab7a9a5f323c5c53457bd17142c47f44240ce22916f386f",
-      "bytes": 757
+      "sha256": "280bf04314bceb783a7bad3d92b8033393f9903a10ba302a44c563f93644387b",
+      "bytes": 798
     },
     {
       "path": "TEST_EVIDENCE.md",
       "sha256": "2d75dd0a5c11ed86823365ff006a13a10cb49d1654c0459ac4e478cb24f9f51d",
       "bytes": 2353
+    },
+    {
+      "path": "assets/logo.png",
+      "sha256": "b52bf9f91a3e730dadaef10015fc828aa54c3740186e69bb667796388aa3780b",
+      "bytes": 15438
     },
     {
       "path": "assets/logo.svg",
@@ -156,8 +161,8 @@
     },
     {
       "path": "chatgpt-app-submission.json",
-      "sha256": "32658bc0ca6299031c4e62658717899373a477dc868da337358f6bffa3be6a34",
-      "bytes": 8417
+      "sha256": "307f7414265752e91aaa076c6e48a17212189072a1028d777437cfd3ce7ae92a",
+      "bytes": 8573
     },
     {
       "path": "contracts/README.md",
@@ -335,24 +340,44 @@
       "bytes": 2868
     },
     {
+      "path": "docs/LOCAL_AUTHORIZATION_DECISION.md",
+      "sha256": "530106fb138414546b3e7b454f5b9c281d5371781125c740d023eca6814b946a",
+      "bytes": 762
+    },
+    {
       "path": "docs/LOCAL_CODEX_TRIAL.md",
       "sha256": "7ea0c0ef750de762303bd0762a54bd2e978e7122d5f61ef0ca35a3a9e152114a",
       "bytes": 1832
     },
     {
+      "path": "docs/LOCAL_MCP.md",
+      "sha256": "7b5455588bda86d4294b5c86dae5a7e741dbf1e4f61755c5ab7b2d0cd9d59425",
+      "bytes": 3940
+    },
+    {
       "path": "docs/LOCAL_RUNTIME.md",
-      "sha256": "6b1d1cf4560ee99c8675e9a16362846971681ed68365f741066c9136914c3b85",
-      "bytes": 4874
+      "sha256": "878533aafda4ff47cd9346be6f9d21e025e0b78917b48c6e7720b424188998f4",
+      "bytes": 5172
+    },
+    {
+      "path": "docs/LOCAL_USE.md",
+      "sha256": "4caf326799c08617b4cca58c4c622c3c1ceaff9f6684bb92f65c64111bee6294",
+      "bytes": 3957
+    },
+    {
+      "path": "docs/MCP_PROFILES.md",
+      "sha256": "11d79f6db245157c51f77e1beeb06da90c6574dc7f7336ad13c7722a3ee66d94",
+      "bytes": 2648
     },
     {
       "path": "docs/PLATFORMS.md",
-      "sha256": "baf9f31a5b8a017426ebb773910426b09c1802401507e6705e6006c7815ee9ed",
-      "bytes": 1847
+      "sha256": "c953874aaa52cbbf238b4f65ff6331e9167577ca9e6a0df4945637bd55a92d92",
+      "bytes": 811
     },
     {
       "path": "docs/README.md",
-      "sha256": "2aeb1dc81ed33bc5d7b6445dfb40074c5e01e8e724a3b85ec1e0e31d80731393",
-      "bytes": 1651
+      "sha256": "fae4274474e51e7720480225349d13255b59780b566c7c44ed93d0e0e3a9e65a",
+      "bytes": 628
     },
     {
       "path": "docs/RELEASE_POLICY.md",
@@ -366,8 +391,8 @@
     },
     {
       "path": "docs/WINDOWS_QUICKSTART.md",
-      "sha256": "c8692a272dbfa4412cf553abe791e1703d55f9a4f1adfa4e7deab5a49f016cfd",
-      "bytes": 5219
+      "sha256": "853b77d0b9506852875579619e034ba288133e395b6507deb64f69b76efbe5e4",
+      "bytes": 4424
     },
     {
       "path": "docs/adr/0001-product-separation.md",
@@ -411,13 +436,13 @@
     },
     {
       "path": "docs/agent/CURRENT_STATE.md",
-      "sha256": "bf494425deaf6c4aaa452c2f5d134fe1f7f632d6881dcb1a66dcded879b0d205",
-      "bytes": 4176
+      "sha256": "5bfa40400ddc45f374fa31e1632222d266f4b2f39e31dea12f86a5512c0c9d70",
+      "bytes": 752
     },
     {
       "path": "docs/agent/NEXT_ACTIONS.md",
-      "sha256": "fffc744afa7eb94b1c53925dbba677668686a3d06a72acdc32664de721823081",
-      "bytes": 2006
+      "sha256": "48f92dc93b9d96fec5ab1883520346871e9a9643d0d9d345a393e2a3b592ff1c",
+      "bytes": 420
     },
     {
       "path": "docs/agent/WORK_REPORT_TEMPLATE.md",
@@ -491,8 +516,8 @@
     },
     {
       "path": "docs/ja/README.md",
-      "sha256": "731a488a01a51b3a758754a6c66863da494140e5a9fe341482be69415d63ea03",
-      "bytes": 1921
+      "sha256": "ae0b9ed2524784fa4b6b1e092b429fbd07f1bf2ddf837a7482dced4c70e1f379",
+      "bytes": 341
     },
     {
       "path": "docs/ja/RELEASE_POLICY.md",
@@ -536,8 +561,8 @@
     },
     {
       "path": "docs/ko/README.md",
-      "sha256": "31c6ecb9679d652758fe54cf9174d3c799e7b38e0e66dc2671ac4bf3709f90c2",
-      "bytes": 1738
+      "sha256": "24594d7f14f29763b00b17913295b0f4496a1aa94f74109b2d4d101e2c3f5ae5",
+      "bytes": 341
     },
     {
       "path": "docs/ko/RELEASE_POLICY.md",
@@ -581,8 +606,8 @@
     },
     {
       "path": "docs/ru/README.md",
-      "sha256": "9cd7660f41a47b81f8079a9df2e7662389b95c4627110922ea3e28a730f81824",
-      "bytes": 2790
+      "sha256": "2554c07fe415fe4fb21b01e73f1a420385dc0d8c64f6fc5c3b24a64cdb8e3203",
+      "bytes": 341
     },
     {
       "path": "docs/ru/RELEASE_POLICY.md",
@@ -626,8 +651,8 @@
     },
     {
       "path": "docs/zh-CN/README.md",
-      "sha256": "b73eff899c630567d8d980c4d4aaddf1b198174aca6ad19f879628038e673752",
-      "bytes": 1487
+      "sha256": "8efe7d62224ed117a33eb28cd548038240cca8fe9d5a2d871aed4f86275b8b1d",
+      "bytes": 344
     },
     {
       "path": "docs/zh-CN/RELEASE_POLICY.md",
@@ -685,9 +710,14 @@
       "bytes": 6555
     },
     {
+      "path": "mcp-tool-catalog.json",
+      "sha256": "3e4e1288d3dff5821d392448b291eb10094bfeee8fb11f2e0de7b2c1c1a80ec3",
+      "bytes": 74219
+    },
+    {
       "path": "plugins/context-ontology-companion/.codex-plugin/plugin.json",
-      "sha256": "cc5733c5a2c69f1d764cc5acf92fb1737736f3c8d59e790cdf782956d4e70e18",
-      "bytes": 1689
+      "sha256": "34aee5e89b9bc550cf944ce7ca9edb1aa6bce2ad4677836d69f81884e0105047",
+      "bytes": 1809
     },
     {
       "path": "plugins/context-ontology-companion/.gitattributes",
@@ -716,13 +746,13 @@
     },
     {
       "path": "plugins/context-ontology-companion/.gitignore",
-      "sha256": "9ff6b0e4b6c56dde90b43eeaa23fbbc4949db93000a8262c40093cc2cf9fa6ec",
-      "bytes": 185
+      "sha256": "499619ce59112e7e46db21f58749ed19665b4feb59cb11ab0a8c9193b213a700",
+      "bytes": 285
     },
     {
       "path": "plugins/context-ontology-companion/ACTIVE_PLAN.md",
-      "sha256": "1e6b57a557f36b03886923ee8ac296230a99fef3d3645f9c7e809dc58052739b",
-      "bytes": 65
+      "sha256": "f54d1bba9980465f3343f27373b881891a08569edcf12207e662afc10ce27266",
+      "bytes": 533
     },
     {
       "path": "plugins/context-ontology-companion/AGENTS.md",
@@ -731,8 +761,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/CHANGELOG.md",
-      "sha256": "28d37320ddda4b93bb232c80691526fb058830174562f838568e94dbcbfe63df",
-      "bytes": 3347
+      "sha256": "cabe4cea7328df1f16c2e74f9f6fdfdce0af77631c2c2912e8606f21d19b2db9",
+      "bytes": 4548
     },
     {
       "path": "plugins/context-ontology-companion/CONTRIBUTING.md",
@@ -766,33 +796,33 @@
     },
     {
       "path": "plugins/context-ontology-companion/PRIVACY.md",
-      "sha256": "b09fceeb5886b4d6869767511c76846697fc40fcbf81443829f96613cf495113",
-      "bytes": 2243
+      "sha256": "37215abc156988649e145ef52cae2905c4784067e27f0eaafc5ca62279166841",
+      "bytes": 1755
     },
     {
       "path": "plugins/context-ontology-companion/README.ja.md",
-      "sha256": "f765224b9e349d841e3b738301f6aee55f37c2808089a9faa9eaa5b7d6cc0cb4",
-      "bytes": 6041
+      "sha256": "0bb735d0c85d2d1bbd1db7f03e6408dc4d14e7c04f69c58a92e2cd75947728e5",
+      "bytes": 3353
     },
     {
       "path": "plugins/context-ontology-companion/README.ko.md",
-      "sha256": "69f0a1b1c990dea9fe681656e28b3c5d44cc20880e73ab3f0f1095804c67da95",
-      "bytes": 5368
+      "sha256": "256a9c99a86a51c684e64a846cae54791fbf64b9f43debc5d82de82105d68555",
+      "bytes": 2988
     },
     {
       "path": "plugins/context-ontology-companion/README.md",
-      "sha256": "cae62f8807e35645014dc0ea99263b449360cf34528de47f1aa0ae80038fa7d3",
-      "bytes": 4900
+      "sha256": "f645f9a6631d722831f226bd5de3b39103f23ae56645d1935ff35a9addfefb32",
+      "bytes": 2547
     },
     {
       "path": "plugins/context-ontology-companion/README.ru.md",
-      "sha256": "abd5104058cb36491a515462a576cf1918367b119c02ce707dc490b00417cf73",
-      "bytes": 8401
+      "sha256": "3f8c69efe2f02e900a56241016bf180c6718232d22cddcaf95abb55452191ce8",
+      "bytes": 4262
     },
     {
       "path": "plugins/context-ontology-companion/README.zh-CN.md",
-      "sha256": "8baf2b856a75e5b867ad3a0e6f7def7596c6915aa0227c43c86d8c7a87604ecc",
-      "bytes": 4618
+      "sha256": "55ad8a17c2d9425e39b478326704c50f4f46b23fe946d9b1fd1a5726b7cb385b",
+      "bytes": 2452
     },
     {
       "path": "plugins/context-ontology-companion/RISK_REGISTER.md",
@@ -801,8 +831,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/SECURITY.md",
-      "sha256": "33d6458a636488a931a54228fa644468ba7c5d1ad59961e1d5fd71e681c5db69",
-      "bytes": 2125
+      "sha256": "9bb000dbf0193237539756c065368f44f73a4fb71781cc5758fe0f52007715b5",
+      "bytes": 2030
     },
     {
       "path": "plugins/context-ontology-companion/START_HERE.md",
@@ -811,18 +841,23 @@
     },
     {
       "path": "plugins/context-ontology-companion/SUPPORT.md",
-      "sha256": "5c66fb2a797a215c8306fcd129da730d0aa9722b7ec780a8172b28290895652c",
-      "bytes": 1303
+      "sha256": "5fe4968b83608e2b1ed84826e660aa7aff1e3556396bd05cc0a6424ab9cc8fdb",
+      "bytes": 851
     },
     {
       "path": "plugins/context-ontology-companion/TERMS.md",
-      "sha256": "a8c942728d190311dab7a9a5f323c5c53457bd17142c47f44240ce22916f386f",
-      "bytes": 757
+      "sha256": "280bf04314bceb783a7bad3d92b8033393f9903a10ba302a44c563f93644387b",
+      "bytes": 798
     },
     {
       "path": "plugins/context-ontology-companion/TEST_EVIDENCE.md",
       "sha256": "2d75dd0a5c11ed86823365ff006a13a10cb49d1654c0459ac4e478cb24f9f51d",
       "bytes": 2353
+    },
+    {
+      "path": "plugins/context-ontology-companion/assets/logo.png",
+      "sha256": "b52bf9f91a3e730dadaef10015fc828aa54c3740186e69bb667796388aa3780b",
+      "bytes": 15438
     },
     {
       "path": "plugins/context-ontology-companion/assets/logo.svg",
@@ -831,8 +866,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/chatgpt-app-submission.json",
-      "sha256": "32658bc0ca6299031c4e62658717899373a477dc868da337358f6bffa3be6a34",
-      "bytes": 8417
+      "sha256": "307f7414265752e91aaa076c6e48a17212189072a1028d777437cfd3ce7ae92a",
+      "bytes": 8573
     },
     {
       "path": "plugins/context-ontology-companion/contracts/README.md",
@@ -1010,24 +1045,44 @@
       "bytes": 2868
     },
     {
+      "path": "plugins/context-ontology-companion/docs/LOCAL_AUTHORIZATION_DECISION.md",
+      "sha256": "530106fb138414546b3e7b454f5b9c281d5371781125c740d023eca6814b946a",
+      "bytes": 762
+    },
+    {
       "path": "plugins/context-ontology-companion/docs/LOCAL_CODEX_TRIAL.md",
       "sha256": "7ea0c0ef750de762303bd0762a54bd2e978e7122d5f61ef0ca35a3a9e152114a",
       "bytes": 1832
     },
     {
+      "path": "plugins/context-ontology-companion/docs/LOCAL_MCP.md",
+      "sha256": "7b5455588bda86d4294b5c86dae5a7e741dbf1e4f61755c5ab7b2d0cd9d59425",
+      "bytes": 3940
+    },
+    {
       "path": "plugins/context-ontology-companion/docs/LOCAL_RUNTIME.md",
-      "sha256": "6b1d1cf4560ee99c8675e9a16362846971681ed68365f741066c9136914c3b85",
-      "bytes": 4874
+      "sha256": "878533aafda4ff47cd9346be6f9d21e025e0b78917b48c6e7720b424188998f4",
+      "bytes": 5172
+    },
+    {
+      "path": "plugins/context-ontology-companion/docs/LOCAL_USE.md",
+      "sha256": "4caf326799c08617b4cca58c4c622c3c1ceaff9f6684bb92f65c64111bee6294",
+      "bytes": 3957
+    },
+    {
+      "path": "plugins/context-ontology-companion/docs/MCP_PROFILES.md",
+      "sha256": "11d79f6db245157c51f77e1beeb06da90c6574dc7f7336ad13c7722a3ee66d94",
+      "bytes": 2648
     },
     {
       "path": "plugins/context-ontology-companion/docs/PLATFORMS.md",
-      "sha256": "baf9f31a5b8a017426ebb773910426b09c1802401507e6705e6006c7815ee9ed",
-      "bytes": 1847
+      "sha256": "c953874aaa52cbbf238b4f65ff6331e9167577ca9e6a0df4945637bd55a92d92",
+      "bytes": 811
     },
     {
       "path": "plugins/context-ontology-companion/docs/README.md",
-      "sha256": "2aeb1dc81ed33bc5d7b6445dfb40074c5e01e8e724a3b85ec1e0e31d80731393",
-      "bytes": 1651
+      "sha256": "fae4274474e51e7720480225349d13255b59780b566c7c44ed93d0e0e3a9e65a",
+      "bytes": 628
     },
     {
       "path": "plugins/context-ontology-companion/docs/RELEASE_POLICY.md",
@@ -1041,8 +1096,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/docs/WINDOWS_QUICKSTART.md",
-      "sha256": "c8692a272dbfa4412cf553abe791e1703d55f9a4f1adfa4e7deab5a49f016cfd",
-      "bytes": 5219
+      "sha256": "853b77d0b9506852875579619e034ba288133e395b6507deb64f69b76efbe5e4",
+      "bytes": 4424
     },
     {
       "path": "plugins/context-ontology-companion/docs/adr/0001-product-separation.md",
@@ -1086,13 +1141,13 @@
     },
     {
       "path": "plugins/context-ontology-companion/docs/agent/CURRENT_STATE.md",
-      "sha256": "bf494425deaf6c4aaa452c2f5d134fe1f7f632d6881dcb1a66dcded879b0d205",
-      "bytes": 4176
+      "sha256": "5bfa40400ddc45f374fa31e1632222d266f4b2f39e31dea12f86a5512c0c9d70",
+      "bytes": 752
     },
     {
       "path": "plugins/context-ontology-companion/docs/agent/NEXT_ACTIONS.md",
-      "sha256": "fffc744afa7eb94b1c53925dbba677668686a3d06a72acdc32664de721823081",
-      "bytes": 2006
+      "sha256": "48f92dc93b9d96fec5ab1883520346871e9a9643d0d9d345a393e2a3b592ff1c",
+      "bytes": 420
     },
     {
       "path": "plugins/context-ontology-companion/docs/agent/WORK_REPORT_TEMPLATE.md",
@@ -1166,8 +1221,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/docs/ja/README.md",
-      "sha256": "731a488a01a51b3a758754a6c66863da494140e5a9fe341482be69415d63ea03",
-      "bytes": 1921
+      "sha256": "ae0b9ed2524784fa4b6b1e092b429fbd07f1bf2ddf837a7482dced4c70e1f379",
+      "bytes": 341
     },
     {
       "path": "plugins/context-ontology-companion/docs/ja/RELEASE_POLICY.md",
@@ -1211,8 +1266,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/docs/ko/README.md",
-      "sha256": "31c6ecb9679d652758fe54cf9174d3c799e7b38e0e66dc2671ac4bf3709f90c2",
-      "bytes": 1738
+      "sha256": "24594d7f14f29763b00b17913295b0f4496a1aa94f74109b2d4d101e2c3f5ae5",
+      "bytes": 341
     },
     {
       "path": "plugins/context-ontology-companion/docs/ko/RELEASE_POLICY.md",
@@ -1256,8 +1311,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/docs/ru/README.md",
-      "sha256": "9cd7660f41a47b81f8079a9df2e7662389b95c4627110922ea3e28a730f81824",
-      "bytes": 2790
+      "sha256": "2554c07fe415fe4fb21b01e73f1a420385dc0d8c64f6fc5c3b24a64cdb8e3203",
+      "bytes": 341
     },
     {
       "path": "plugins/context-ontology-companion/docs/ru/RELEASE_POLICY.md",
@@ -1301,8 +1356,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/docs/zh-CN/README.md",
-      "sha256": "b73eff899c630567d8d980c4d4aaddf1b198174aca6ad19f879628038e673752",
-      "bytes": 1487
+      "sha256": "8efe7d62224ed117a33eb28cd548038240cca8fe9d5a2d871aed4f86275b8b1d",
+      "bytes": 344
     },
     {
       "path": "plugins/context-ontology-companion/docs/zh-CN/RELEASE_POLICY.md",
@@ -1360,14 +1415,19 @@
       "bytes": 6555
     },
     {
+      "path": "plugins/context-ontology-companion/mcp-tool-catalog.json",
+      "sha256": "3e4e1288d3dff5821d392448b291eb10094bfeee8fb11f2e0de7b2c1c1a80ec3",
+      "bytes": 74219
+    },
+    {
       "path": "plugins/context-ontology-companion/plugin-bundle.json",
-      "sha256": "a129783f3886815afcc553eb0af435e81a6bc523c7f9af527b71abae096f1d86",
-      "bytes": 25192
+      "sha256": "0965da8663facefc5fe4f02f0995177585c72479e0aa6e5364f8ffbd33ccaf9d",
+      "bytes": 26790
     },
     {
       "path": "plugins/context-ontology-companion/release-state.json",
-      "sha256": "93b8a93d5b01dc29ae92bef062b1bb7ea609bfc14552cdff66372c4cbcf8c177",
-      "bytes": 3705
+      "sha256": "83727935e79c9cda8801e30fb32d679099817ce75d4e22f6f87075fbc71508a3",
+      "bytes": 4047
     },
     {
       "path": "plugins/context-ontology-companion/requirements-dev.txt",
@@ -1381,28 +1441,33 @@
     },
     {
       "path": "plugins/context-ontology-companion/scripts/build_plugin.py",
-      "sha256": "a127237593c35a898294264b58cddf129e1e2ce386169b580ad5ff2784669104",
-      "bytes": 9814
+      "sha256": "5cd410284f1579fce85e6d1127da3b7dd2e40ea3f7bbd655d0747cf00a86125e",
+      "bytes": 9857
     },
     {
       "path": "plugins/context-ontology-companion/scripts/build_release.py",
-      "sha256": "5d5fc14fc21c001d96321ad92633dd992de5f4171407938c425ce78e991b22ab",
-      "bytes": 1324
+      "sha256": "ef08f9833b9627fa9e60d84688381f28751498c5dacd46409a3c8a104b053de8",
+      "bytes": 1396
     },
     {
       "path": "plugins/context-ontology-companion/scripts/check.py",
-      "sha256": "ad7cec21769da92e803b8abf5c6f77053e8a55c3c5054940fd8cf308bdddb043",
-      "bytes": 1500
+      "sha256": "c053b31a3f76abc8e5be49632c8418b2e71a8ee4f08868123b96dc1359f6f122",
+      "bytes": 1547
     },
     {
       "path": "plugins/context-ontology-companion/scripts/public_gate.py",
-      "sha256": "906e73e35c1ac9f23c78a22d1c7843a56c528756629e4933999a2f15ea0fe4c9",
-      "bytes": 3303
+      "sha256": "7cefe396069a90df73d928bdcd011791544fa833b5fed6261112b955e155e2f4",
+      "bytes": 5854
     },
     {
       "path": "plugins/context-ontology-companion/scripts/run.py",
-      "sha256": "595a4afb93ef08f0b1a1fedebe34e5c931af5a5def8031f1817c01688f0bb0f7",
-      "bytes": 4455
+      "sha256": "cc026eae72d2b8395b000f14b06ce55821eaf2d4df6eff31ffd67b8b00b873c3",
+      "bytes": 5402
+    },
+    {
+      "path": "plugins/context-ontology-companion/scripts/setup_mcp.py",
+      "sha256": "558f52edd8089a9d381ca38d5568c3f6c1b00706c0617e0a51a09f17f3483df2",
+      "bytes": 9372
     },
     {
       "path": "plugins/context-ontology-companion/scripts/validate_design.py",
@@ -1411,18 +1476,28 @@
     },
     {
       "path": "plugins/context-ontology-companion/skills/manage-approved-context/SKILL.md",
-      "sha256": "d311b78f9a38b93e161dc82e449d141e517a952a8a3a700e1d0167fd5c7541f8",
-      "bytes": 3456
+      "sha256": "db5f0c5f528b648f0652b4cbcefe1cde713fc79926ded4cc0887248a4fd8608e",
+      "bytes": 5482
     },
     {
       "path": "plugins/context-ontology-companion/src/context_companion/__init__.py",
-      "sha256": "75e424bf342d2ed858279652e571126dad222b13aedb67a87ff9ae1d523fe8ad",
-      "bytes": 107
+      "sha256": "f7259df65a132dc32b2dfbe2ad5de97a36a9d66d4e756a0ca2485a74d29fe222",
+      "bytes": 99
+    },
+    {
+      "path": "plugins/context-ontology-companion/src/context_companion/local_cli.py",
+      "sha256": "2bdb1ae5c9927cd8c0fbadfbcf32d8a34a389559cfb7b0c226ade31a2980d68c",
+      "bytes": 13417
+    },
+    {
+      "path": "plugins/context-ontology-companion/src/context_companion/local_mcp.py",
+      "sha256": "9fc64e9817321cf66915d57fd89f6d29fe234b9536f1e35a94874637b12d57df",
+      "bytes": 6709
     },
     {
       "path": "plugins/context-ontology-companion/src/context_companion/mcp.py",
-      "sha256": "532e4000ba261bdf300ea2a8a47b2fa54544354c1ed48781d2a4fdbb0836a09b",
-      "bytes": 5579
+      "sha256": "859a60a762d1af5738fbdf34a8a890f8753aab73348fdbe7ba1b0a70a23d3af6",
+      "bytes": 6008
     },
     {
       "path": "plugins/context-ontology-companion/src/context_companion/review.py",
@@ -1431,8 +1506,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/src/context_companion/store.py",
-      "sha256": "41ba7919188a0debb2397b6ea9b0667186deb73c052eca8165f500ed4870c135",
-      "bytes": 18373
+      "sha256": "b115748212609f5c12b71294231e24a3719cd186e9f0cbacb7297e033719d1bf",
+      "bytes": 21403
     },
     {
       "path": "plugins/context-ontology-companion/src/context_companion/tools.py",
@@ -1470,9 +1545,19 @@
       "bytes": 2642
     },
     {
+      "path": "plugins/context-ontology-companion/tests_product/test_local_workflow.py",
+      "sha256": "0f68bed3a38992951bd5902d2c0b5392d12693c6a0a8d43b9134d0206393c426",
+      "bytes": 11908
+    },
+    {
       "path": "plugins/context-ontology-companion/tests_product/test_review.py",
       "sha256": "4e1705266dddf3e73769ba521cc3281002773b2fe254f6dc6cdd02a8dfebdbdc",
       "bytes": 14125
+    },
+    {
+      "path": "plugins/context-ontology-companion/tests_product/test_setup_mcp.py",
+      "sha256": "0b6ca0fd0d799b9429aa343b2f55e25463005011bdfa1a1504abfeeb0647406d",
+      "bytes": 8845
     },
     {
       "path": "plugins/context-ontology-companion/tests_product/test_store.py",
@@ -1491,8 +1576,8 @@
     },
     {
       "path": "plugins/context-ontology-companion/vendor/CONTRACTS_PIN.json",
-      "sha256": "1d35ba365c6b8a7f309af53d5b15020d4465bf381e3e129436d75361dd46dd87",
-      "bytes": 1118
+      "sha256": "91d37cb1d2d98ffcb0f0ab426ac70c0cbc540a95c2ee45ad27f359ddb2839581",
+      "bytes": 1170
     },
     {
       "path": "plugins/context-ontology-companion/vendor/companion_contracts/__init__.py",
@@ -1526,8 +1611,8 @@
     },
     {
       "path": "release-state.json",
-      "sha256": "93b8a93d5b01dc29ae92bef062b1bb7ea609bfc14552cdff66372c4cbcf8c177",
-      "bytes": 3705
+      "sha256": "83727935e79c9cda8801e30fb32d679099817ce75d4e22f6f87075fbc71508a3",
+      "bytes": 4047
     },
     {
       "path": "requirements-dev.txt",
@@ -1541,28 +1626,33 @@
     },
     {
       "path": "scripts/build_plugin.py",
-      "sha256": "a127237593c35a898294264b58cddf129e1e2ce386169b580ad5ff2784669104",
-      "bytes": 9814
+      "sha256": "5cd410284f1579fce85e6d1127da3b7dd2e40ea3f7bbd655d0747cf00a86125e",
+      "bytes": 9857
     },
     {
       "path": "scripts/build_release.py",
-      "sha256": "5d5fc14fc21c001d96321ad92633dd992de5f4171407938c425ce78e991b22ab",
-      "bytes": 1324
+      "sha256": "ef08f9833b9627fa9e60d84688381f28751498c5dacd46409a3c8a104b053de8",
+      "bytes": 1396
     },
     {
       "path": "scripts/check.py",
-      "sha256": "ad7cec21769da92e803b8abf5c6f77053e8a55c3c5054940fd8cf308bdddb043",
-      "bytes": 1500
+      "sha256": "c053b31a3f76abc8e5be49632c8418b2e71a8ee4f08868123b96dc1359f6f122",
+      "bytes": 1547
     },
     {
       "path": "scripts/public_gate.py",
-      "sha256": "906e73e35c1ac9f23c78a22d1c7843a56c528756629e4933999a2f15ea0fe4c9",
-      "bytes": 3303
+      "sha256": "7cefe396069a90df73d928bdcd011791544fa833b5fed6261112b955e155e2f4",
+      "bytes": 5854
     },
     {
       "path": "scripts/run.py",
-      "sha256": "595a4afb93ef08f0b1a1fedebe34e5c931af5a5def8031f1817c01688f0bb0f7",
-      "bytes": 4455
+      "sha256": "cc026eae72d2b8395b000f14b06ce55821eaf2d4df6eff31ffd67b8b00b873c3",
+      "bytes": 5402
+    },
+    {
+      "path": "scripts/setup_mcp.py",
+      "sha256": "558f52edd8089a9d381ca38d5568c3f6c1b00706c0617e0a51a09f17f3483df2",
+      "bytes": 9372
     },
     {
       "path": "scripts/validate_design.py",
@@ -1571,18 +1661,28 @@
     },
     {
       "path": "skills/manage-approved-context/SKILL.md",
-      "sha256": "d311b78f9a38b93e161dc82e449d141e517a952a8a3a700e1d0167fd5c7541f8",
-      "bytes": 3456
+      "sha256": "db5f0c5f528b648f0652b4cbcefe1cde713fc79926ded4cc0887248a4fd8608e",
+      "bytes": 5482
     },
     {
       "path": "src/context_companion/__init__.py",
-      "sha256": "75e424bf342d2ed858279652e571126dad222b13aedb67a87ff9ae1d523fe8ad",
-      "bytes": 107
+      "sha256": "f7259df65a132dc32b2dfbe2ad5de97a36a9d66d4e756a0ca2485a74d29fe222",
+      "bytes": 99
+    },
+    {
+      "path": "src/context_companion/local_cli.py",
+      "sha256": "2bdb1ae5c9927cd8c0fbadfbcf32d8a34a389559cfb7b0c226ade31a2980d68c",
+      "bytes": 13417
+    },
+    {
+      "path": "src/context_companion/local_mcp.py",
+      "sha256": "9fc64e9817321cf66915d57fd89f6d29fe234b9536f1e35a94874637b12d57df",
+      "bytes": 6709
     },
     {
       "path": "src/context_companion/mcp.py",
-      "sha256": "532e4000ba261bdf300ea2a8a47b2fa54544354c1ed48781d2a4fdbb0836a09b",
-      "bytes": 5579
+      "sha256": "859a60a762d1af5738fbdf34a8a890f8753aab73348fdbe7ba1b0a70a23d3af6",
+      "bytes": 6008
     },
     {
       "path": "src/context_companion/review.py",
@@ -1591,8 +1691,8 @@
     },
     {
       "path": "src/context_companion/store.py",
-      "sha256": "41ba7919188a0debb2397b6ea9b0667186deb73c052eca8165f500ed4870c135",
-      "bytes": 18373
+      "sha256": "b115748212609f5c12b71294231e24a3719cd186e9f0cbacb7297e033719d1bf",
+      "bytes": 21403
     },
     {
       "path": "src/context_companion/tools.py",
@@ -1630,9 +1730,19 @@
       "bytes": 2642
     },
     {
+      "path": "tests_product/test_local_workflow.py",
+      "sha256": "0f68bed3a38992951bd5902d2c0b5392d12693c6a0a8d43b9134d0206393c426",
+      "bytes": 11908
+    },
+    {
       "path": "tests_product/test_review.py",
       "sha256": "4e1705266dddf3e73769ba521cc3281002773b2fe254f6dc6cdd02a8dfebdbdc",
       "bytes": 14125
+    },
+    {
+      "path": "tests_product/test_setup_mcp.py",
+      "sha256": "0b6ca0fd0d799b9429aa343b2f55e25463005011bdfa1a1504abfeeb0647406d",
+      "bytes": 8845
     },
     {
       "path": "tests_product/test_store.py",
@@ -1651,8 +1761,8 @@
     },
     {
       "path": "vendor/CONTRACTS_PIN.json",
-      "sha256": "1d35ba365c6b8a7f309af53d5b15020d4465bf381e3e129436d75361dd46dd87",
-      "bytes": 1118
+      "sha256": "91d37cb1d2d98ffcb0f0ab426ac70c0cbc540a95c2ee45ad27f359ddb2839581",
+      "bytes": 1170
     },
     {
       "path": "vendor/companion_contracts/__init__.py",

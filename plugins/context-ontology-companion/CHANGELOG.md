@@ -1,5 +1,14 @@
 # Changelog
 
+## Plugin 0.1.0 — 2026-09-06 local project use
+
+- Save, retrieve, correct, contradict, revoke and erase explicitly selected real project context through the local CLI or 12 project-bound MCP tools.
+- Configure a selected project's Codex MCP connection with the bundled setup helper; rerun it after updates to refresh installed paths. macOS, Windows and Linux use Python 3.11+.
+- Record caller-declared current requests under the OS account, with provenance, effective time, revisions and retry IDs. This separate profile does not impersonate authenticated human web review or reuse its storage.
+- Recover context after a fresh local host connection, build complete bounded context packs and export the unchanged `0.1.0-draft.1` contract format. Stored context grants no future execution permission.
+- Preserve the optional password-based review profile and its nonce, CSRF, session, scope and revision checks. No hosted remote MCP service is introduced.
+- Include separate local/review tool metadata, five-language usage guides and reproducible complete plugin packages. [Release state](release-state.json) records the packaging snapshot; later CI and publication status may advance independently.
+
 ## Plugin 0.1.0-draft.1 — 2026-09-06 public preview
 
 - Published independent source and a complete skills-only GitHub marketplace package under Apache-2.0.

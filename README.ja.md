@@ -2,67 +2,62 @@
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Русский](README.ru.md)
 
-**P1a 開発プレビュー · [現在の公開・検証状況](release-state.json)**
+選択したプロジェクトの決定、要件、制約をローカルに保存し、出典や変更履歴とともに検索できます。プロジェクトの変化に応じて記録を更新・撤回・削除し、必要なコンテキストをほかのツール向けにエクスポートできます。
 
-明示的に共有したプロジェクトの決定・目標・制約を、出典と変更履歴とともに次の作業へ引き継ぎます。Context Ontology Companion は独立した公開プラグインとして開発中です。
+macOS、Windows、Linux と Python 3.11 以降に対応しています。API キーやリモートサービスは不要です。
 
-`demo` は合成例、一時保存、模擬承認を使用します。別のローカル試作版には、永続ローカル保存、認証付きループバックの人による確認画面、手動設定する stdio を実装しました。ローカルの合成テストは成功しています。macOS の Codex 0.153.3 で、試験用と明記したサンプルを用いた手動設定のローカル stdio スモークテストも成功しました。公開 GitHub マーケットプレイスからのインストールと、インストール済みランタイムのスモークテストも macOS で成功しました。ホスト型 ChatGPT 連携と実際の人による承認は未検証です。universal Directory への提出は別の手続きで、まだ行っていません。本番での実データ利用と本番認証は未対応です。
+## インストール
 
-[ローカルランタイムと認証付き確認ガイド（英語）](docs/LOCAL_RUNTIME.md)
-
-認証付きローカル確認画面と手動設定の stdio はプレビューです。macOS Codex のスモークテストは模擬承認を使用しており、人による確認手順を検証したものではありません。合成データだけを使用してください。Windows ACL による保護は未検証です。
-
-## 公開プレビューをインストール
-
-公開プレビューは現在インストールできます。プラグイン対応の Codex CLI で完全なパッケージをインストールします。
-
-```sh
+```text
 codex plugin marketplace add battle-doll/context-ontology-companion
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-新しい Codex タスクで `$manage-approved-context` を呼び出し、インストールしたパッケージの合成デモを実行するよう依頼します。実行コード・例・同梱契約が必要なので、`SKILL.md` だけをコピーせず、バンドル全体を保持してください。永続保存と人による確認の設定は、このデモとは別です。
+スキル、サーバー、スキーマを含むプラグイン全体をインストールしてください。
 
-[Windows クイックスタート](docs/WINDOWS_QUICKSTART.md) · [現在のリリース状況](release-state.json)。GitHub マーケットプレイスからのインストールと universal Directory への公開は別の状態です。以下の CI 証拠はリンク先の完了した実行結果です。その後の公開・OS 検証状況はリリース状態ファイルを参照してください。
+## プロジェクトに接続
 
-## ローカルプレビューを実行
+Codex で対象のプロジェクトを開き、次のように依頼します。
 
-このリポジトリのディレクトリで Python 3.11 以降を使用します。プレビューのコマンドに追加の Python パッケージは不要です。仮想環境と Windows コマンドは OS ガイドを参照してください。
-
-```sh
-python3 --version
-python3 scripts/run.py demo
-python3 scripts/run.py tools
-python3 scripts/check.py
+```text
+$manage-approved-context
+現在のプロジェクトに、このプラグインのローカル MCP 接続を設定してください。
 ```
 
-これらはローカル開発コードを実行するコマンドです。プラグインのインストールやホストサービスの作成は行いません。例は合成データです。
+設定後、同じプロジェクトで新しいタスクを開くと MCP ツールを利用できます。直接実行するコマンド、インストール先の確認方法、OS 別の手順は [ローカル MCP 設定](docs/LOCAL_MCP.md) と [Windows クイックスタート](docs/WINDOWS_QUICKSTART.md) を参照してください。
 
-## 対応 OS と検証状況
+## 使い方
 
-対応対象 OS は **macOS・Windows・Linux** です。ソースの移植性、実行済み OS テスト、プラグインホストの動作は別々に確認します。リンク先の CI では 3 OS × 3 Python の全 9 組み合わせが成功しました。ホストへのインストールは別途検証します。
+保存したい決定を具体的に伝えます。
 
-| OS | 実行証拠 |
-| --- | --- |
-| macOS | CI PASS — Python 3.11・3.12・3.13（3/3） |
-| Windows | CI PASS — Python 3.11・3.12・3.13（3/3）。Windows Codex ホストへのインストールは未試験 |
-| Linux | CI PASS — Python 3.11・3.12・3.13（3/3）。Linux Codex ホストへのインストールは未試験 |
-| プラグインホスト連携 | macOS Codex 0.153.3 のローカル stdio と公開 GitHub マーケットプレイスからのインストールは成功。Windows/Linux ホストへのインストール・ホスト型 ChatGPT・実際の人による承認は未検証 |
+```text
+$manage-approved-context
+このプロジェクトの要件として、macOS、Windows、Linux をサポートすることを保存してください。
+このメッセージを出典にしてください。
+```
 
-[CI 証拠：全 9 ジョブ成功](https://github.com/battle-doll/context-ontology-companion/actions/runs/33975562432).
+後のタスクで検索できます。
 
-[macOS / Windows / Linux ガイド](docs/ja/PLATFORMS.md)
+```text
+$manage-approved-context
+このプロジェクトがサポートする OS を検索し、出典とともに表示してください。
+```
 
-## 製品の境界
+選択した記録の更新・削除、変更履歴の表示、コンテキストのエクスポートも依頼できます。MCP 接続なしで使える CLI コマンドは [ローカル利用ガイド](docs/LOCAL_USE.md) にあります。
 
-Code・Context・Contracts は独立した製品です。利用側は Contracts プラグインをインストールせずに契約成果物を固定または同梱できます。DB や権限の共有、自動プラグイン呼び出し、既存 Code 製品の変更は意味しません。
+データはリポジトリの外にローカル OS アカウントで保存され、プロジェクトのパスごとに分かれます。保存するのは選択した内容だけで、会話全体は自動収集しません。保存された決定はコンテキストであり、後の操作を実行する権限にはなりません。認証情報や機密性の高い個人情報は保存しないでください。クラウド上だけで動くホストには、ローカルランタイムへの別途接続が必要です。
 
-デモとローカル確認用の試作版には合成データだけを使用します。保存された文やモデルの承認フラグは現在の操作を許可しません。ローカルアダプターは OS アカウントと管理者を信頼しており、同じ無制限のファイルアクセス権を持つプロセスから承認を隔離しません。過去の `known_at` 再構成は未対応です。
+## アップデート
 
-## ドキュメント
+```text
+codex plugin marketplace upgrade context-ontology-preview
+codex plugin add context-ontology-companion@context-ontology-preview
+```
 
-[ドキュメント一覧](docs/ja/README.md) · [構成とロードマップ](docs/ja/ARCHITECTURE_AND_ROADMAP.md) · [バージョン方針](docs/ja/VERSION_POLICY.md) · [リリースとロールバック](docs/ja/RELEASE_POLICY.md)
+アップデート後は上記の接続設定を再度依頼し、新しいタスクを開いてインストール済みの新バージョンを利用してください。
 
-[セキュリティ](docs/ja/SECURITY.md) · [プライバシー](docs/ja/PRIVACY.md) · [サポート](docs/ja/SUPPORT.md) · [貢献](docs/ja/CONTRIBUTING.md) · [変更履歴](CHANGELOG.md)
+## ヘルプ
 
-[Apache-2.0 ライセンス](LICENSE)を適用します。現在の公開・検証状況は [release-state.json](release-state.json) を参照してください。
+[ドキュメント](docs/ja/README.md) · [サポート](SUPPORT.md) · [プライバシー](PRIVACY.md) · [セキュリティ](SECURITY.md) · [変更履歴](CHANGELOG.md)
+
+[Apache-2.0](LICENSE) ライセンスで提供しています。

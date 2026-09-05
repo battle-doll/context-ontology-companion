@@ -5,6 +5,7 @@ import sqlite3
 import sys
 from .store import Store, ContextError
 from .tools import TOOLS, dispatch
+from . import __version__
 
 PROTOCOL="2025-11-25"
 MAX_LINE=131_072
@@ -47,8 +48,11 @@ def parse(raw):
 
 
 class Session:
-    def __init__(self, store, principal):
+    def __init__(self, store, principal, tools=None, dispatcher=None, server_name="context-ontology-companion"):
         self.store=store; self.principal=principal; self.initialized=False; self.ready=False
+        self.tools = TOOLS if tools is None else tools
+        self.dispatcher = dispatch if dispatcher is None else dispatcher
+        self.server_name = server_name
 
     def handle(self, request):
         ident=request.get("id") if isinstance(request,dict) and type(request.get("id")) in (str,int) else None
@@ -68,7 +72,7 @@ class Session:
             if self.initialized: return error(-32600,"Already initialized")
             if not isinstance(params.get("protocolVersion"),str) or not isinstance(params.get("capabilities"),dict) or not isinstance(params.get("clientInfo"),dict): return error(-32602,"Invalid initialize params")
             self.initialized=True
-            result={"protocolVersion":PROTOCOL,"capabilities":{"tools":{"listChanged":False}},"serverInfo":{"name":"context-ontology-companion","version":"0.1.0-draft.1"}}
+            result={"protocolVersion":PROTOCOL,"capabilities":{"tools":{"listChanged":False}},"serverInfo":{"name":self.server_name,"version":__version__}}
         elif method=="ping": result={}
         elif not self.ready: return error(-32000,"Initialize first")
         elif method=="tools/list":
@@ -82,11 +86,11 @@ class Session:
             cursor=params.get("cursor")
             if cursor is not None and (not isinstance(cursor,str) or cursor!=""):
                 return error(-32602,"Pagination unsupported")
-            result={"tools":TOOLS}
+            result={"tools":self.tools}
         elif method=="tools/call":
             if set(params)-{"name","arguments","_meta"} or not isinstance(params.get("name"),str): return error(-32602,"Invalid tool call")
             try:
-                value=dispatch(self.store,self.principal,params["name"],params.get("arguments",{})); failed=False
+                value=self.dispatcher(self.store,self.principal,params["name"],params.get("arguments",{})); failed=False
             except ContextError as exc:
                 value={"error":exc.code}; failed=True
             except (sqlite3.Error,ValueError,TypeError,RecursionError):
@@ -100,6 +104,12 @@ def serve_stdio(home):
     from .review import load_local
     path,principal=load_local(home)
     store=Store(path); session=Session(store,principal)
+    try: serve_session(session)
+    finally: store.close()
+
+
+def serve_session(session):
+    """Shared bounded transport; each profile supplies its own authenticated adapter."""
     try:
         while True:
             raw=sys.stdin.buffer.readline(MAX_LINE+1)
@@ -112,4 +122,4 @@ def serve_stdio(home):
             except (ValueError,UnicodeError,RecursionError):
                 response={"jsonrpc":"2.0","id":None,"error":{"code":-32700,"message":"Invalid JSON"}}
             if response is not None: print(json.dumps(response,ensure_ascii=True,allow_nan=False),flush=True)
-    finally: store.close()
+    finally: pass

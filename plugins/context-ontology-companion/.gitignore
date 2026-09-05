@@ -19,3 +19,7 @@ runtime-data/
 logs/
 backups/
 exports/
+
+# Local account and runtime configuration never belongs in a release.
+local-cli.json
+operator.json

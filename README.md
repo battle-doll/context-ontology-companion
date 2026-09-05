@@ -2,67 +2,62 @@
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Русский](README.ru.md)
 
-**P1a development preview · [Current publication and verification status](release-state.json)**
+Store selected project decisions, requirements and constraints locally, then retrieve them with their sources and revision history. Update, revoke or erase records as your project changes, and export selected context for other tools.
 
-Recover the project decisions, goals, and constraints you deliberately share, with their sources and changes over time. Context Ontology Companion is being developed as an independent public plugin.
+Runs on macOS, Windows and Linux with Python 3.11 or newer. No API key or remote service is required.
 
-The `demo` uses synthetic examples, temporary storage, and simulated approval. A separate local prototype now implements persistent local storage, authenticated loopback human review, and manually configured stdio. Local synthetic tests have passed. A manually configured local stdio smoke test passed on macOS with Codex 0.153.3 using labeled trial samples. Installation from the public GitHub marketplace and the installed runtime smoke test also passed on macOS. Hosted ChatGPT integration and actual human approval remain unverified; the universal Directory submission is separate and has not been made. Production real-data use and production authentication remain unsupported.
+## Install
 
-[Local runtime and authenticated review guide](docs/LOCAL_RUNTIME.md)
-
-The local authenticated reviewer and manually configured stdio remain previews. The macOS Codex smoke test used simulated approval; it does not verify the human review workflow. Use synthetic data only. Windows ACL protection is not verified.
-
-## Install the public preview
-
-The public preview is available now. Install its complete package with a Codex CLI that supports plugins:
-
-```sh
+```text
 codex plugin marketplace add battle-doll/context-ontology-companion
 codex plugin add context-ontology-companion@context-ontology-preview
 ```
 
-Start a new Codex task and invoke `$manage-approved-context` to run the installed package's synthetic demo. Keep the complete bundle; copying only `SKILL.md` omits its runtime, examples, and vendored contracts. Persistent storage and its human review setup are separate from this demo.
+Install the complete plugin so its skill, server and schemas stay together.
 
-[Windows quickstart](docs/WINDOWS_QUICKSTART.md) · [Current release state](release-state.json). GitHub marketplace installation and universal Directory publication are separate statuses. The CI evidence below records the linked completed run. Consult the release state for subsequent publication and platform results.
+## Connect your project
 
-## Try the local preview
+Open your project in Codex and send:
 
-Use Python 3.11 or newer from this repository directory. No additional Python packages are required for the preview commands. See the OS guide for a virtual environment and Windows commands.
-
-```sh
-python3 --version
-python3 scripts/run.py demo
-python3 scripts/run.py tools
-python3 scripts/check.py
+```text
+$manage-approved-context
+Set up this plugin's local MCP connection for the current project.
 ```
 
-These commands run local development code. They do not install a plugin or create a hosted service. Example data is synthetic.
+Then open a new task in the same project to use the MCP tools. For direct setup commands, installed plugin paths and operating system details, see [Local MCP setup](docs/LOCAL_MCP.md) or the [Windows quickstart](docs/WINDOWS_QUICKSTART.md).
 
-## Platforms and evidence
+## Use it
 
-The supported-platform target is **macOS, Windows, and Linux**. Source portability, an executed OS test, and a working plugin host are separate claims. The linked CI run passed all nine OS/Python combinations; host installation is tested separately.
+Ask Codex to save a specific decision:
 
-| OS | Execution evidence |
-| --- | --- |
-| macOS | CI PASS — Python 3.11, 3.12, 3.13 (3/3) |
-| Windows | CI PASS — Python 3.11, 3.12, 3.13 (3/3); Windows Codex host installation not tested |
-| Linux | CI PASS — Python 3.11, 3.12, 3.13 (3/3); Linux Codex host installation not tested |
-| Plugin host integration | macOS Codex 0.153.3 local stdio smoke and public GitHub marketplace installation passed; Windows/Linux host installation, hosted ChatGPT, and actual human approval unverified |
+```text
+$manage-approved-context
+Save this project requirement: support macOS, Windows and Linux.
+Use this message as its source.
+```
 
-[CI evidence: all 9 jobs passed](https://github.com/battle-doll/context-ontology-companion/actions/runs/33975562432).
+Retrieve it in a later task:
 
-[macOS / Windows / Linux guide](docs/PLATFORMS.md)
+```text
+$manage-approved-context
+Find this project's supported operating systems and show the sources.
+```
 
-## Product boundaries
+You can also ask to revise or delete a selected record, inspect its history, or export context. The [local usage guide](docs/LOCAL_USE.md) includes CLI commands for use without an MCP connection.
 
-Code, Context, and Contracts are independent products. Consumers may pin or vendor contract artifacts without installing the Contracts plugin. No shared database, inherited permission, automatic cross-plugin call, or change to the existing Code plugin is implied.
+Data is stored outside the repository under your local OS account and scoped to the project path. Only the content you select is saved; whole conversations are not collected automatically. Stored decisions provide context, not permission to execute later actions. Keep credentials and sensitive personal records out of this store. Cloud-only hosts need a separate connection to your local runtime.
 
-Use synthetic data in both the demo and the local review prototype. Stored text and model-generated approval flags never authorize a current action. The local adapter trusts the OS account and administrator; it does not isolate approval from a process with the same unrestricted filesystem access. Historical `known_at` reconstruction remains unsupported.
+## Update
 
-## Documentation
+```text
+codex plugin marketplace upgrade context-ontology-preview
+codex plugin add context-ontology-companion@context-ontology-preview
+```
 
-[Documentation index](docs/README.md) · [Architecture and roadmap](docs/ARCHITECTURE_AND_ROADMAP.md) · [Version policy](docs/VERSION_POLICY.md) · [Release and rollback](docs/RELEASE_POLICY.md)
+Repeat the project connection request above after updating, then open a new task so the connection uses the installed version.
 
-[Security](SECURITY.md) · [Privacy](PRIVACY.md) · [Support](SUPPORT.md) · [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
+## Help
 
-Licensed under [Apache-2.0](LICENSE). See [release-state.json](release-state.json) for current publication and verification status.
+[Documentation](docs/README.md) · [Support](SUPPORT.md) · [Privacy](PRIVACY.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md)
+
+Licensed under [Apache-2.0](LICENSE).

@@ -1,21 +1,15 @@
 # Privacy
 
-Status: local-development policy draft. No production privacy service or published plugin is claimed.
+Version 0.1.0 is a local application workflow. The publisher operates no hosted data service for it. Normal commands and local MCP do not make direct network requests, require an API key, upload artifacts, or invoke an external model.
 
-The `demo` uses synthetic decisions and temporary storage. The separate local prototype can persist prepared and approved synthetic context outside Git, with an authenticated loopback review UI and scoped retrieval, correction, withdrawal, erasure, and current-context export. It does not import chat histories. Real-data use and production deletion guarantees remain unsupported; see [the local runtime guide](docs/LOCAL_RUNTIME.md).
+Context stores only purpose-limited decisions, requirements and constraints selected in an explicit user request. The OS-account profile uses a separate local SQLite store outside Git and the plugin cache, keyed to the current OS account and project scope. Sources, validity, revisions and a caller-declared authorization receipt are retained. This receipt is not an independently verified human identity or web approval.
 
-## Data boundaries
+Do not collect whole conversations, hidden sessions, credentials, health/payment records or government identifiers. Public fixtures, tests, issue reports and release files must not contain private user data. The optional authenticated web-review profile retains separate operator configuration and is not silently migrated into the local profile.
 
-Use synthetic fixtures during development. Do not include actual private conversations, credentials, health or payment records, government identifiers, or proprietary source in Git, tests, logs, screenshots, issue attachments, or public release materials.
+Requested erasure removes knowledge payloads from the local store's records and history; metadata needed for duplicate-request handling may remain. Exports, redirected shell output, host transcripts, backups and filesystem snapshots have separate lifecycles. This product does not certify secure physical erasure, encrypted storage, third-party transcript deletion or backup removal.
 
-The core workflow is local and does not require telemetry, external LLM enrichment, an external account, or a remote database. The local review prototype creates a local operator configuration with a password hash; it does not create a cloud account. Installing or running it through a third-party host does not change that host's own processing rules. Review the chosen host's rules before sharing any content there.
+Default local directories and exact setup are described in [Local MCP](docs/LOCAL_MCP.md).
 
-## Retention and deletion
+Third-party hosts process prompts and tool results under their own terms. Installing this plugin does not change those host policies or give a cloud-only host access to the local computer.
 
-Temporary files, shell history, redirected output, exports, host transcripts, backups, and CI logs can have separate lifecycles. Removing a local database does not erase those copies. Secure erasure, encrypted storage, backup deletion, and host-history deletion are not certified features of this preview.
-
-No real-data migration or cloud deployment is part of the local preview. New persistence, upload, analytics, or enrichment behavior must update this document and undergo explicit review before release.
-
-[Security](SECURITY.md) · [Support](SUPPORT.md) · [Documentation](docs/README.md)
-
-Proposals remain valid for approval for 15 minutes; expiry is not automatic disk deletion. Payload cleanup runs every 30 seconds while the review server is running, or when the operator explicitly runs `purge-expired`. Preparing a change does not perform that cleanup. If the reviewer and maintenance are stopped, expired proposal payloads remain on disk until cleanup runs.
+[Security](SECURITY.md) · [Terms](TERMS.md) · [Support](SUPPORT.md)

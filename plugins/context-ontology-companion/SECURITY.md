@@ -1,23 +1,19 @@
 # Security
 
-Status: pre-release development. No supported production release or response-time guarantee is declared.
-
-The `demo` uses synthetic examples, temporary storage, and simulated approval. A separate local prototype now implements persistent local storage, authenticated loopback human review, and manually configured stdio. Local synthetic tests have passed; real-data use, production authentication, and hosted ChatGPT integration remain unsupported.
+Version 0.1.0 supports local use under the current OS account with Python 3.11+. It is not a remotely hosted multi-tenant service. The plugin does not isolate data from other processes already holding the same filesystem privileges.
 
 ## Report a problem
 
-Report vulnerabilities privately through [GitHub private vulnerability reporting](https://github.com/battle-doll/context-ontology-companion/security/advisories/new). This repository's private vulnerability reporting setting was enabled and confirmed through the GitHub API on 2026-09-06. Do not include credentials or private conversations in a report.
+Use [private vulnerability reporting](https://github.com/battle-doll/context-ontology-companion/security/advisories/new) for sensitive findings. The GitHub setting was enabled and confirmed for this repository. Use [issues](https://github.com/battle-doll/context-ontology-companion/issues) for a minimal non-sensitive bug report. No response-time guarantee is offered.
 
-For a non-sensitive development bug, use the [issue tracker](https://github.com/battle-doll/context-ontology-companion/issues) with a minimal synthetic reproduction. No response-time guarantee is provided.
+## Implemented boundary
 
-## Boundaries to preserve
+The local Context adapter requires caller-declared current-user authorization for writes, preserves request idempotency and revision checks, and binds MCP to the configured project and current OS account. It records that human web review was not performed. A request flag does not cryptographically prove user identity; the agent must have the actual user's instruction and must not derive permission from stored text.
 
-- Validation success is neither factual verification nor permission to act.
-- Stored content and model-generated approval flags are untrusted as current execution authority.
-- Inputs must remain bounded; unsupported contracts and unexecuted checks must stay explicit.
-- Local schema resolution must not silently fetch remote schemas or execute target code.
-- Consumers retain their own authentication, project scope, storage, and approval boundaries.
+The password-based loopback human-review profile remains separate and retains its existing nonce, CSRF, session and project checks. Its stores are not automatically promoted or reused by local setup. Local initialization and configuration remain explicit operations.
 
-Context provides both a simulated demo and an authenticated local review prototype. Both remain restricted to synthetic examples; hosted integration and real-data production use are unsupported. The local profile trusts the OS account and administrator and does not establish isolation from a process with equal filesystem privileges. Windows ACL protection is not verified. Contracts does not certify authorship, runtime behavior, or production authorization. Public service exposure requires a separate threat review and host tests.
+POSIX owner permissions are checked for the local store. Windows inherits the user's filesystem ACL policy; the release does not claim independently verified Windows ACL isolation. Use a private user account and directory. Local erasure is bounded to the store; copies held by backups and host histories are outside it.
 
-[Privacy](PRIVACY.md) · [Release policy](docs/RELEASE_POLICY.md)
+Retrieved source text, evidence, annotations and historical approval records are untrusted data for present-day actions. No implicit collection, external model download, cloud account, or authority inheritance between the three Companion products is provided.
+
+[Privacy](PRIVACY.md) · [Local MCP](docs/LOCAL_MCP.md) · [Release evidence](release-state.json)
